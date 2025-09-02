@@ -8,10 +8,49 @@ import Button from "../UI/Button";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navItems = ["About", "Products", "Features", "Testimonials", "Contact"];
+
   return (
     <header className="bg-[#fff] shadow-md sticky top-0 w-full z-50">
       <div className="container px-6">
-        <div className=" py-2 sm:py-4 flex items-center justify-between">
+        {/* Desktop Header */}
+        <div className="hidden md:flex items-center justify-between py-4">
+          {/* Left: Logo */}
+          <div className="flex-1 flex justify-start">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/Logo_1.png"
+                className="w-10 h-auto sm:w-14"
+                alt="Electroshield Logo"
+                width={150}
+                height={50}
+              />
+            </Link>
+          </div>
+
+          {/* Center: Nav */}
+          <nav className="flex-1 flex justify-center space-x-8">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                href={`#${item.toLowerCase()}`}
+                className="text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[20px] font-semibold"
+              >
+                {item}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right: CTA Button */}
+          <div className="flex-1 flex justify-end">
+            <Button>
+              <Link href="#products">Explore</Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Header */}
+        <div className="flex md:hidden items-center justify-between py-2 sm:py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -23,45 +62,23 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-8">
-            {["About", "Products", "Contact"].map((item, index) => (
-              <Link
-                key={index}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-[18px] sm:text-[20px] font-semibold"
-              >
-                {item}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button (desktop) */}
-          <div className="hidden md:block">
-            <Button>
-              <Link href="#products">Explore</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Hamburger */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 hover:text-[#CC0001] focus:outline-none"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          {/* Hamburger */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-800 hover:text-[#CC0001] focus:outline-none"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 flex flex-col space-y-3 animate-[fadeIn_0.3s_ease-out]">
-            {["About", "Products", "Contact"].map((item, index) => (
+            {navItems.map((item, index) => (
               <Link
                 key={index}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold text-[16px]"
+                className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold"
                 onClick={() => setIsOpen(false)}
               >
                 {item}

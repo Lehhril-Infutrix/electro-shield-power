@@ -42,12 +42,12 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Our Products</h3>
           <ul className="space-y-2 text-gray-400">
-            <li><a className="hover:text-white" href="#">Internal Circuit Breakers</a></li>
-            <li><a className="hover:text-white" href="#">CNC-Cut CRGO Laminations</a></li>
-            <li><a className="hover:text-white" href="#">Amorphous Loops</a></li>
-            <li><a className="hover:text-white" href="#">DPC Conductors</a></li>
-            <li><a className="hover:text-white" href="#">Transformer Tanks</a></li>
-            <li><a className="hover:text-white" href="#">Radiators</a></li>
+            <li><a className="hover:text-white" href="#products">Internal Circuit Breakers</a></li>
+            <li><a className="hover:text-white" href="#products">CNC-Cut CRGO Laminations</a></li>
+            <li><a className="hover:text-white" href="#products">Amorphous Loops</a></li>
+            <li><a className="hover:text-white" href="#products">DPC Conductors</a></li>
+            <li><a className="hover:text-white" href="#products">Transformer Tanks</a></li>
+            <li><a className="hover:text-white" href="#products">Radiators</a></li>
           </ul>
         </div>
 

@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, Globe } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-6 sm:py-10 md:py-20 bg-gray-50">
+    <section id="contact" className="py-6 sm:py-10 md:py-20 bg-gray-50 scroll-m-16">
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         {/* Map */}
         <div

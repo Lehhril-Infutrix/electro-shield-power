@@ -98,7 +98,7 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="bg-[#fffaf7] py-6 sm:py-10 md:py-20 relative testimonial-section">
+    <section className="bg-[#fffaf7] py-6 sm:py-10 md:py-20 relative testimonial-section scroll-m-16" id="testimonials">
       <div className="container px-4 sm:px-6 grid md:grid-cols-5 sm:gap-8 sm:gap-12 items-center">
         {/* Title */}
         <div

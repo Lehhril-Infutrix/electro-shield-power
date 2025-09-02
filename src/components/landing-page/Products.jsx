@@ -58,7 +58,7 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
-    <section className="py-6 sm:py-10 md:py-20 bg-white">
+    <section className="py-6 sm:py-10 md:py-20 bg-white scroll-m-16" id="products">
       {/* Section heading */}
       <div className="container">
         <div
@@ -83,7 +83,7 @@ const Products = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:scale-105"
+              className="rounded-xl shadow-md overflow-hidden transition-transform duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 200} // stagger cards
               data-aos-duration="1000"

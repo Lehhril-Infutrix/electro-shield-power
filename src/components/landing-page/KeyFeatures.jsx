@@ -84,7 +84,7 @@ const features = [
 
 const KeyFeatures = () => {
   return (
-    <section className="bg-[#fffaf7] py-20">
+    <section className="bg-[#fffaf7] py-20 scroll-m-16" id='features'>
       <div className="container">
         {/* Section heading */}
         <div className="text-center mb-12 max-w-2xl mx-auto px-4 sm:px-0">

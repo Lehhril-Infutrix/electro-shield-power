@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Button from "../UI/Button";
+import Link from "next/link";
 
 const Banner = () => {
 
@@ -46,8 +47,13 @@ const Banner = () => {
             data-aos-delay="400"
             className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0"
           >
-            <Button className="w-full sm:w-auto">Explore Products</Button>
-            <Button className="w-full sm:w-auto">Contact Us</Button>
+            <Link href="#products" passHref>
+              <Button className="w-full sm:w-auto">Explore Products</Button>
+            </Link>
+
+            <Link href="#contact" passHref>
+              <Button className="w-full sm:w-auto">Contact Us</Button>
+            </Link>
           </div>
         </div>
       </div>
