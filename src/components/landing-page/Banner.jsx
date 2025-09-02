@@ -3,52 +3,56 @@ import React from "react";
 import Button from "../UI/Button";
 
 const Banner = () => {
-  
+
 
   return (
-    <section className="relative h-[90vh] flex items-center bg-cover bg-center banner">
+    <section className="relative h-[540px] sm:h-[90vh] flex items-center bg-cover bg-center banner">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Content */}
       <div className="relative z-10 container px-6">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto md:mx-0">
+          {/* Tagline */}
           <span
             data-aos="fade-down"
-            className="bg-[#CC0001] text-white px-3 py-2 rounded text-sm font-medium uppercase tracking-wide rounded-xl inline-block"
+            className="bg-[#CC0001] text-white px-3 py-2 rounded text-xs sm:text-sm font-medium uppercase tracking-wide inline-block"
           >
             Welcome to Electroshield
           </span>
 
+          {/* Heading */}
           <h1
             data-aos="fade-right"
-            className="mt-6 text-6xl font-bold text-white leading-[1.1em]"
+            className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug sm:leading-tight md:leading-[1.1em]"
           >
-            Powering the Future of{" "}
-            <span className="text-[#CC0001]">Transformers</span>
+            Powering the Future of Transformers
           </h1>
 
+          {/* Paragraph */}
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="mt-4 text-lg text-white"
+            className="mt-4 text-sm sm:text-base md:text-lg text-white"
           >
             Electroshield Power Industries delivers advanced transformer components
             with innovation, precision, and reliability. From circuit breakers to core
             laminations, we ensure consistent performance and durability.
           </p>
 
+          {/* Buttons */}
           <div
             data-aos="zoom-in"
             data-aos-delay="400"
-            className="mt-8 flex space-x-4"
+            className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0"
           >
-            <Button>Explore Products</Button>
-            <Button>Contact Us</Button>
+            <Button className="w-full sm:w-auto">Explore Products</Button>
+            <Button className="w-full sm:w-auto">Contact Us</Button>
           </div>
         </div>
       </div>
     </section>
+
   );
 };
 

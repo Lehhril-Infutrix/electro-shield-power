@@ -89,9 +89,17 @@ body {
 
 /* Custom Css */
 .banner{
-  background: url('../../public/images/Banner_bg.webp') 100% 30% no-repeat;
-  min-height: 90vh;
+  background: url('../../public/images/Banner_bg1.webp') 40% 80% no-repeat;
 }
 .testimonial-section .slick-list{
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+@media(max-width: 767px){
+  .container {
+    padding-inline:20px;
+  }
 }

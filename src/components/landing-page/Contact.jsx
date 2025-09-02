@@ -4,8 +4,8 @@ import { MapPin, Mail, Phone, Globe } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <section id="contact" className="py-6 sm:py-10 md:py-20 bg-gray-50">
+      <div className="container grid md:grid-cols-2 gap-12 items-center">
         {/* Map */}
         <div
           className="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg"

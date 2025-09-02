@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../UI/Button";
@@ -7,12 +7,12 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("mission");
 
   return (
-    <section id="about" className="py-20 bg-[#fff]">
+    <section id="about" className="py-20 scroll-m-16 bg-[#fff]">
       <div className="container">
         <div className="grid md:grid-cols-4 gap-16 items-center">
-          {/* Left Side */}
+          {/* Left Side Image */}
           <div
-            className="col-span-2 pr-8"
+            className="col-span-4 md:col-span-2 pr-0 md:pr-8 mb-6 md:mb-0"
             data-aos="fade-right"
             data-aos-duration="1200"
           >
@@ -25,19 +25,19 @@ const About = () => {
             />
           </div>
 
-          {/* Right Side */}
-          <div
-            className="col-span-2"
-            data-aos="fade-left"
-            data-aos-duration="1200"
-          >
+          {/* Right Side Content */}
+          <div className="col-span-4 md:col-span-2">
             <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
               About Electroshield
             </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Innovation, Precision & Reliability in Transformer Components
             </h3>
-            <p className="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="200">
+            <p
+              className="text-gray-600 mb-8"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               Electroshield Power Industries is promoted by technocrats with vast
               experience in electrical engineering, both in manufacturing and
               operations. We cater to the needs of the transformer industry with key
@@ -46,7 +46,7 @@ const About = () => {
             </p>
 
             {/* Quick stats */}
-            <div className="flex space-x-8 mb-8">
+            <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-4 sm:space-y-0 mb-8">
               <div
                 className="border-l-4 border-l-[#CC0001] pl-4"
                 data-aos="zoom-in"
@@ -66,11 +66,7 @@ const About = () => {
             </div>
 
             {/* Tabs */}
-            <div
-              className="flex space-x-4 mb-8 border-b border-gray-200"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
+            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-8 border-b border-gray-200">
               <button
                 onClick={() => setActiveTab("mission")}
                 className={`py-2 px-4 font-semibold cursor-pointer ${
@@ -95,7 +91,7 @@ const About = () => {
 
             {/* Tab Content */}
             {activeTab === "mission" && (
-              <p className="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="700">
+              <p className="text-gray-600 mb-8">
                 Our mission is to deliver cost-effective transformer components without
                 compromising on quality. By integrating cutting-edge technology with
                 strict adherence to timelines, we ensure guaranteed customer
@@ -104,7 +100,7 @@ const About = () => {
               </p>
             )}
             {activeTab === "vision" && (
-              <p className="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="700">
+              <p className="text-gray-600 mb-8">
                 Our vision is to be a global leader in transformer component
                 manufacturing by driving innovation through advanced R&D and precision
                 engineering. We strive to provide sustainable, reliable, and efficient

@@ -58,7 +58,7 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-6 sm:py-10 md:py-20 bg-white">
       {/* Section heading */}
       <div className="container">
         <div
@@ -117,11 +117,11 @@ const Products = () => {
           {/* Backdrop */}
           <div
             onClick={() => setSelectedProduct(null)}
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity z-40"
           ></div>
 
           {/* Modal */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-xl mx-4 animate-[fadeIn_0.3s_ease-out] p-6">
+          <div className="relative z-[60] bg-white rounded-2xl shadow-2xl w-full max-w-xl mx-4 animate-[fadeIn_0.3s_ease-out] p-6">
             {/* Close button */}
             <button
               onClick={() => setSelectedProduct(null)}
@@ -142,7 +142,7 @@ const Products = () => {
             </button>
 
             {/* Image */}
-            <div className="w-full h-72 overflow-hidden rounded-2xl m-auto">
+            <div className="w-full h-40 md:h-72 overflow-hidden rounded-2xl m-auto">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
