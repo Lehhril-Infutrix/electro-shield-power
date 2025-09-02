@@ -56,18 +56,18 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white shadow-lg rounded-b-xl py-4 flex flex-col space-y-3 animate-[fadeIn_0.3s_ease-out]">
+          <div className="md:hidden py-4 flex flex-col space-y-3 animate-[fadeIn_0.3s_ease-out]">
             {["About", "Products", "Contact"].map((item, index) => (
               <Link
                 key={index}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold px-4"
+                className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold text-[16px]"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
               </Link>
             ))}
-            <Button className="mx-4 mt-2 w-auto">
+            <Button className="w-fit">
               <Link href="#products" onClick={() => setIsOpen(false)}>
                 Explore
               </Link>
