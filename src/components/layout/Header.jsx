@@ -43,9 +43,11 @@ const Header = () => {
 
           {/* Right: CTA Button */}
           <div className="flex-1 flex justify-end">
+             <Link href="#products">
             <Button>
-              <Link href="#products">Explore</Link>
+             Explore
             </Button>
+            </Link>
           </div>
         </div>
 
