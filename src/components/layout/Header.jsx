@@ -8,7 +8,7 @@ import Button from "../UI/Button";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = ["About", "Products", "Features", "Testimonials", "Contact"];
+  const navItems = ["About", "Features", "Products", "Testimonials", "Contact"];
 
   return (
     <header className="bg-[#fff] shadow-md sticky top-0 w-full z-50">
