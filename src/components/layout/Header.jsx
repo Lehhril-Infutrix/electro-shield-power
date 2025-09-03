@@ -4,17 +4,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Button from "../UI/Button";
+import { usePathname } from "next/navigation";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = ["About", "Features", "Products", "Testimonials", "Contact"];
+  const pathname = usePathname();
+
+  let navItems = [];
+
+  if (pathname === "/") {
+    navItems = ["About", "Features", "Products", "Testimonials", "Contact"];
+  } else if (pathname.startsWith("/dreamshield")) {
+    navItems = ["About", "R&D", "Products", "Resources", "Careers","Contact"];
+  }
 
   return (
     <header className="bg-[#fff] shadow-md sticky top-0 w-full z-50">
       <div className="container px-6">
         {/* Desktop Header */}
-        <div className="hidden md:flex items-center justify-between py-4">
+        <div className="hidden md:flex items-center justify-between py-3">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start">
             <Link href="/" className="flex items-center">
@@ -29,12 +39,12 @@ const Header = () => {
           </div>
 
           {/* Center: Nav */}
-          <nav className="flex-1 flex justify-center space-x-8">
+          <nav className="flex-1 flex justify-center space-x-10">
             {navItems.map((item, index) => (
               <Link
                 key={index}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[20px] font-semibold"
+                className="text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-medium"
               >
                 {item}
               </Link>
@@ -43,10 +53,10 @@ const Header = () => {
 
           {/* Right: CTA Button */}
           <div className="flex-1 flex justify-end">
-             <Link href="#products">
-            <Button>
-             Explore
-            </Button>
+            <Link href="#products">
+              <Button>
+                Explore
+              </Button>
             </Link>
           </div>
         </div>
