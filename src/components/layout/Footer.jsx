@@ -1,8 +1,7 @@
 "use client";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 
 const footerData = {
   "/": {
@@ -41,12 +40,7 @@ const footerData = {
       { label: "Resources", href: "#resources" },
       { label: "Contact", href: "#contact" },
     ],
-    products: [
-      "Industrial Paints",
-      "Primers",
-      "Thinners",
-      "Adhesives",
-    ],
+    products: ["Industrial Paints", "Primers", "Thinners", "Adhesives"],
   },
 };
 
@@ -55,25 +49,41 @@ export default function Footer() {
 
   // fallback: use "/" data if no match
   const data =
-    pathname.startsWith("/dreamshield") ? footerData["/dreamshield"] : footerData["/"];
+    pathname.startsWith("/dreamshield")
+      ? footerData["/dreamshield"]
+      : footerData["/"];
 
   return (
     <footer className="bg-[#121212] text-white pt-12">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
         {/* Company Info */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">{data.company.name}</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            {data.company.name}
+          </h2>
           <p className="text-gray-400 mb-4">{data.company.desc}</p>
           <div className="flex space-x-4">
-            {["facebook-f", "twitter", "linkedin-in"].map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="bg-[#CC0001] w-10 h-10 flex justify-center items-center rounded-full hover:bg-[#ab0001] transition"
-              >
-                <i className={`fab fa-${icon}`}></i>
-              </a>
-            ))}
+            <a
+              href="#"
+              className="bg-[#CC0001] w-10 h-10 flex justify-center items-center rounded-full hover:bg-[#ab0001] transition"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5 text-white" />
+            </a>
+            <a
+              href="#"
+              className="bg-[#CC0001] w-10 h-10 flex justify-center items-center rounded-full hover:bg-[#ab0001] transition"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-5 h-5 text-white" />
+            </a>
+            <a
+              href="#"
+              className="bg-[#CC0001] w-10 h-10 flex justify-center items-center rounded-full hover:bg-[#ab0001] transition"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5 text-white" />
+            </a>
           </div>
         </div>
 
