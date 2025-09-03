@@ -109,7 +109,7 @@ const Resources = () => {
 
             {/* CTA button */}
             <a
-              href="/downloads/ral-colour-chart.pdf"
+              href="/documents/Color-Shades.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-[#CC0001] text-white font-semibold rounded-xl shadow hover:bg-[#a50000] transition "
