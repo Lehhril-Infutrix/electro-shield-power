@@ -10,10 +10,13 @@ import {
   Hammer,
   Zap,
 } from "lucide-react";
+// import { Tooltip } from 'react-tooltip'
+// import 'react-tooltip/dist/react-tooltip.css'
 
 const Resources = () => {
   return (
     <>
+    {/* <Tooltip id="my-tooltip" /> */}
       <section id="resources" className="py-20 bg-beige scroll-m-16">
         <div className="container">
           {/* Heading */}
@@ -94,7 +97,9 @@ const Resources = () => {
           >
             {/* Mini swatch preview (just 6 sample boxes) */}
             <div className="grid grid-cols-6 gap-2 w-full max-w-md">
-              <div className="h-12 rounded-md bg-red-600"></div>
+              <div data-tooltip-id="my-tooltip"
+                data-tooltip-content="Hello world!"
+                data-tooltip-place="top" className="h-12 rounded-md bg-red-600"></div>
               <div className="h-12 rounded-md bg-blue-600"></div>
               <div className="h-12 rounded-md bg-green-600"></div>
               <div className="h-12 rounded-md bg-yellow-400"></div>
