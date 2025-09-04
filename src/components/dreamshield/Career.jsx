@@ -33,7 +33,7 @@ const Career = () => {
   return (
     <section
       id="careers"
-      className="relative max-w-[1600px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] m-auto py-16 sm:py-16 bg-[#CC0001] text-white rounded-3xl my-20 scroll-m-32"
+      className="relative max-w-[1600px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] m-auto py-12 sm:py-10 bg-[#CC0001] text-white rounded-3xl my-20 scroll-m-32"
     >
       <div className="px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Content */}

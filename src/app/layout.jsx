@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import TopHeader from "@/components/layout/TopHeader";
 import { Outfit } from "next/font/google";
+import ScrollToggleButton from "@/components/layout/ScrollToggleButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <WhatsAppButton />
+        <ScrollToggleButton />
       </body>
     </html>
   );
