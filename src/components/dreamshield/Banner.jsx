@@ -16,8 +16,6 @@ const Banner = () => {
         playsInline
       >
         <source src="/videos/banner_bg.mp4" type="video/mp4" />
-        {/* Add WebM for better compression if you have it */}
-        {/* <source src="/videos/banner-bg.webm" type="video/webm" /> */}
         Your browser does not support the video tag.
       </video>
 

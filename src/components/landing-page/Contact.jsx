@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
+import Button from "../UI/Button";
 
 const MAX_MSG = 250;
 const ACCESS_KEY = process.env.NEXT_PUBLIC_ACCESS_KEY || "";
@@ -212,13 +213,13 @@ const Contact = () => {
                 {status ? status.text : ""}
               </span>
 
-              <button
+              <Button
                 type="submit"
                 disabled={submitting}
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-[var(--accent-color)] text-white font-semibold shadow hover:bg-[#b30001] disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.99] transition"
               >
                 {submitting ? "Sending..." : "Send"}
-              </button>
+              </Button>
             </div>
           </form>
         </div>

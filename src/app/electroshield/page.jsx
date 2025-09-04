@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 const page = () => {
   return (
     <>
-      {/* <HomeMain /> */}
+      <HomeMain />
     </>
   )
 }

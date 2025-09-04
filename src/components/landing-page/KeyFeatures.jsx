@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const features = [
   {
@@ -11,20 +12,7 @@ const features = [
   },
   {
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-16 w-16 text-[#CC0001]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10" />
-      </svg>
+      "key_icon2"
     ),
     title: 'Global-Standard Quality',
     description:
@@ -32,19 +20,7 @@ const features = [
   },
   {
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-16 w-16 text-[#CC0001]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
+      "key_icon3"
     ),
     title: 'Advanced Infrastructure',
     description:
@@ -52,18 +28,7 @@ const features = [
   },
   {
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-16 w-16 text-[#CC0001]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M20 6L9 17l-5-5" />
-      </svg>
+      "key_icon4"
     ),
     title: 'Comprehensive Solutions',
     description:
@@ -101,7 +66,9 @@ const KeyFeatures = () => {
               data-aos-delay={index * 200} // staggered animation
               data-aos-duration="1000"
             >
-              <div className="mb-4">{feature.icon}</div>
+              <div className="mb-4">
+                <Image src={`/images/${feature.icon}.svg`} alt={feature.title} width={56} height={56} />
+              </div>
               <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
               <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
             </div>
