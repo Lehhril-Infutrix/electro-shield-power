@@ -6,18 +6,29 @@ import { Menu, X } from "lucide-react";
 import Button from "../UI/Button";
 import { usePathname } from "next/navigation";
 
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const pathname = usePathname();
 
   let navItems = [];
 
   if (pathname === "/") {
-    navItems = ["About", "Features", "Products", "Testimonials", "Contact"];
+    navItems = [
+      { name: "About", href: "#about" },
+      { name: "Features", href: "#features" },
+      { name: "Products", href: "#products" },
+      { name: "Testimonials", href: "#testimonials" },
+      { name: "Contact Us", href: "#contact" },
+    ];
   } else if (pathname.startsWith("/dreamshield")) {
-    navItems = ["About", "R&D", "Products", "Resources", "Careers","Contact"];
+    navItems = [
+      { name: "About", href: "#about" },
+      { name: "R&D", href: "#r&d" },
+      { name: "Products", href: "#products" },
+      { name: "Resources", href: "#resources" },
+      { name: "Careers", href: "#careers" },
+      { name: "Contact Us", href: "#contact" },
+    ];
   }
 
   return (
@@ -39,14 +50,14 @@ const Header = () => {
           </div>
 
           {/* Center: Nav */}
-          <nav className="flex-1 flex justify-center space-x-10">
+          <nav className="flex-1 flex justify-center space-x-6">
             {navItems.map((item, index) => (
               <Link
                 key={index}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-medium"
+                href={item.href}
+                className="text-nowrap text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-medium"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </nav>
@@ -54,9 +65,7 @@ const Header = () => {
           {/* Right: CTA Button */}
           <div className="flex-1 flex justify-end">
             <Link href="#products">
-              <Button>
-                Explore
-              </Button>
+              <Button>Explore</Button>
             </Link>
           </div>
         </div>
@@ -89,11 +98,11 @@ const Header = () => {
             {navItems.map((item, index) => (
               <Link
                 key={index}
-                href={`#${item.toLowerCase()}`}
+                href={item.href}
                 className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold"
                 onClick={() => setIsOpen(false)}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
             <Button className="w-fit">

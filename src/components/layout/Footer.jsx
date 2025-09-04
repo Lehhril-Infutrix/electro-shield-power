@@ -29,7 +29,7 @@ const footerData = {
 
   "/dreamshield": {
     company: {
-      name: "Dreamshield Coatings",
+      name: "Dreamshield",
       desc: "Innovative coatings, resins, and adhesives delivering performance, durability, and aesthetics for industrial applications.",
     },
     links: [
@@ -38,7 +38,8 @@ const footerData = {
       { label: "R&D", href: "#rnd" },
       { label: "Products", href: "#products" },
       { label: "Resources", href: "#resources" },
-      { label: "Contact", href: "#contact" },
+      { label: "Careers", href: "#careers" },
+      { label: "Contact Us", href: "#contact" },
     ],
     products: ["Industrial Paints", "Primers", "Thinners", "Adhesives"],
   },

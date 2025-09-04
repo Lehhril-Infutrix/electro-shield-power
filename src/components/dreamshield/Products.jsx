@@ -1,41 +1,62 @@
 "use client";
 import React, { useState } from "react";
 import Button from "../UI/Button";
+import { ArrowRight } from "lucide-react";
 
 const products = [
   {
     image: "/images/product_01.webp",
     title: "Industrial Paints",
-    short_desc:
-      "Durable coatings designed for industrial applications.",
+    short_desc: "Durable coatings designed for industrial applications.",
     long_desc:
       "Our industrial paints include PU, Epoxy, and specialized coatings engineered for superior adhesion, durability, and resistance. They provide long-lasting protection and finish for surfaces across industries.",
+    subProducts: [
+      "PU",
+      "Epoxy",
+      "Q.D paints",
+      "Stoving paints",
+      "Synthetics enamel",
+    ],
   },
   {
     image: "/images/product_02.webp",
     title: "Primers",
-    short_desc:
-      "High-performance primers for surface preparation.",
+    short_desc: "High-performance primers for surface preparation.",
     long_desc:
       "We offer a range of primers including red oxide, zinc chromate, and epoxy-based solutions. These primers ensure strong adhesion, corrosion resistance, and a smooth base for further coating applications.",
+    subProducts: [
+      "Red oxide",
+      "Zinc Chromate",
+      "Cement primer",
+      "Zinc phosphate",
+    ],
   },
   {
     image: "/images/product_03.webp",
     title: "Thinners",
-    short_desc:
-      "Reliable thinners for consistent application.",
+    short_desc: "Reliable thinners for consistent application.",
     long_desc:
       "Our premium-grade thinners are formulated for use with a wide range of paints and coatings. They ensure proper viscosity, ease of application, and a flawless finish while maintaining product integrity.",
+    subProducts: [
+      "PU",
+      "Epoxy",
+      "NC",
+      "Stoving",
+      "Q.D. Cleaning",
+    ],
   },
   {
     image: "/images/product_04.webp",
     title: "Adhesives",
-    short_desc:
-      "Strong adhesives for industrial bonding.",
+    short_desc: "Strong adhesives for industrial bonding.",
     long_desc:
       "Our adhesives deliver high bond strength and versatility for multiple substrates. They are developed with advanced formulations to provide durability, reliability, and long-term performance in industrial use.",
+    subProducts: [
+      // Add specific adhesive types if you have them later
+    ],
   },
 ];
+
 
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -123,7 +144,7 @@ const Products = () => {
             </button>
 
             {/* Image */}
-            <div className="w-full h-40 md:h-72 overflow-hidden rounded-2xl m-auto">
+            <div className="w-full h-40 md:h-64 overflow-hidden rounded-2xl m-auto">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
@@ -139,6 +160,17 @@ const Products = () => {
               <p className="text-gray-600 leading-relaxed text-lg">
                 {selectedProduct.long_desc}
               </p>
+              {selectedProduct?.subProducts?.length > 0 && (
+                <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {selectedProduct.subProducts.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-base text-gray-700">
+                      <ArrowRight className="w-4 h-4 text-[#CC0001] shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
             </div>
           </div>
         </div>
