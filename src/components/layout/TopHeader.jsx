@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 const TopHeader = () => {
   const pathname = usePathname();
   const links = [
-    { name: "Electroshield", href: "/" },
-    { name: "Dreamshield", href: "/dreamshield" },
+    { name: "Dreamshield", href: "/" },
+    { name: "Electroshield", href: "/electroshield" },
   ];
 
   return (

@@ -1,4 +1,4 @@
-import HomeMain from '@/components/landing-page/HomeMain'
+import HomeMain from '@/components/dreamshield/HomeMain'
 import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

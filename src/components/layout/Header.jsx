@@ -12,7 +12,7 @@ const Header = () => {
 
   let navItems = [];
 
-  if (pathname === "/") {
+  if (pathname.startsWith("/electroshield")) {
     navItems = [
       { name: "About", href: "#about" },
       { name: "Features", href: "#features" },
@@ -20,7 +20,7 @@ const Header = () => {
       { name: "Testimonials", href: "#testimonials" },
       { name: "Contact Us", href: "#contact" },
     ];
-  } else if (pathname.startsWith("/dreamshield")) {
+  } else if (pathname === "/") {
     navItems = [
       { name: "About", href: "#about" },
       { name: "R&D", href: "#r&d" },

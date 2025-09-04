@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const footerData = {
-  "/": {
+  "/electroshield": {
     company: {
       name: "ElectroShield Power",
       desc: "Reliable power solutions with quality, innovation, and trust. Delivering excellence across transformers and energy systems.",
     },
     links: [
-      { label: "Home", href: "/" },
+      { label: "Home", href: "/electroshield" },
       { label: "About", href: "#about" },
       { label: "Features", href: "#features" },
       { label: "Products", href: "#products" },
@@ -27,13 +27,13 @@ const footerData = {
     ],
   },
 
-  "/dreamshield": {
+  "/": {
     company: {
       name: "Dreamshield",
       desc: "Innovative coatings, resins, and adhesives delivering performance, durability, and aesthetics for industrial applications.",
     },
     links: [
-      { label: "Home", href: "/dreamshield" },
+      { label: "Home", href: "/" },
       { label: "About", href: "#about" },
       { label: "R&D", href: "#rnd" },
       { label: "Products", href: "#products" },
@@ -50,8 +50,8 @@ export default function Footer() {
 
   // fallback: use "/" data if no match
   const data =
-    pathname.startsWith("/dreamshield")
-      ? footerData["/dreamshield"]
+    pathname.startsWith("/electroshield")
+      ? footerData["/electroshield"]
       : footerData["/"];
 
   return (

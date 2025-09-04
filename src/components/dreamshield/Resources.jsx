@@ -72,7 +72,7 @@ const Resources = () => {
       <section className="paint-res-sec mt-20">
 
         {/* RAL Colour Chart */}
-        <div className="max-w-[1600px] w-[calc(100%-80px)] m-auto my-20 grid grid-cols-3 md:gap-16 gap-8 items-center bg-white rounded-2xl shadow-lg p-10 border border-[#ddd]">
+        <div className="max-w-[1600px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] m-auto my-20 grid grid-cols-3 md:gap-16 gap-8 items-center bg-white rounded-2xl shadow-lg p-10 border border-[#ddd]">
           {/* Heading + description */}
           <div
             className="col-span-3 md:col-span-1"
