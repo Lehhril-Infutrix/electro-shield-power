@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../UI/Button";
+import Link from "next/link";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("values");
@@ -98,7 +99,9 @@ const About = () => {
             )}
 
             <div data-aos="fade-up" data-aos-delay="800">
-              <Button>More About Us</Button>
+              <Link href="/dreamshield#r&d">
+                <Button>More About Us</Button>
+              </Link>
             </div>
           </div>
         </div>

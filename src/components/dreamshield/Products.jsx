@@ -45,7 +45,7 @@ const Products = () => {
       {/* Section heading */}
       <div className="container">
         <div
-          className="text-center mb-12 max-w-2xl mx-auto"
+          className="text-center mb-12 max-w-3xl mx-auto"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -61,7 +61,7 @@ const Products = () => {
         </div>
 
         {/* Products grid */}
-        <div className="justify-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="justify-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <div
               key={index}
@@ -73,7 +73,7 @@ const Products = () => {
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-72 object-cover"
+                className="w-full h-64 object-cover"
               />
               <div className="p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-2">
