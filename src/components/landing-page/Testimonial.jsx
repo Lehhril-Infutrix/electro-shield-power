@@ -16,24 +16,24 @@ const testimonials = [
     location: "Mumbai",
   },
   {
-    image: "/images/Testimonial_avatar.png",
+    image: "/images/Testimonial_avatar-1.png",
     quote:
       "We have been sourcing amorphous loops and DPC conductors from Electroshield for years. Their precision, attention to detail, and on-time delivery make them a trusted partner.",
     name: "Anita Verma",
     location: "Delhi",
   },
   {
-    image: "/images/Testimonial_avatar.png",
+    image: "/images/Testimonial_avatar-2.png",
     quote:
       "The transformer tanks and radiators supplied by Electroshield helped us achieve better efficiency and longevity in our transformers. Highly recommend for any power industry solutions.",
     name: "Suresh Menon",
     location: "Bangalore",
   },
   {
-    image: "/images/Testimonial_avatar.png",
+    image: "/images/Testimonial_avatar-3.png",
     quote:
       "We have been sourcing amorphous loops and DPC conductors from Electroshield for years. Their precision, attention to detail, and on-time delivery make them a trusted partner.",
-    name: "Priya Nair",
+    name: "Ranjan Nair",
     location: "Chennai",
   },
   {

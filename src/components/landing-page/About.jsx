@@ -17,7 +17,7 @@ const About = () => {
             data-aos-duration="1200"
           >
             <Image
-              src="/images/About_img1.webp"
+              src="/images/About_img.webp"
               alt="Electroshield facility"
               width={300}
               height={300}

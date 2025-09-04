@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-10 md:py-20 md:pt-0 bg-white scroll-m-16" aria-labelledby="contact-heading">
+    <section id="contact" className="py-10 md:py-20 md:pt-0 bg-white scroll-m-24" aria-labelledby="contact-heading">
       <div className="container grid md:grid-cols-2 gap-12">
         {/* LEFT: Info + small map */}
         <div className="space-y-4">

@@ -3,18 +3,7 @@ import React from 'react';
 const features = [
   {
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-16 w-16 text-[#CC0001]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M3 12l2-2 4 4 8-8 4 4-12 12z" />
-      </svg>
+      "key_icon1"
     ),
     title: '25+ Years of Expertise',
     description:

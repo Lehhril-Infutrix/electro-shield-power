@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfit.variable} antialiased overflow-x-hidden`}
       >
-        <TopHeader />
+        {/* <TopHeader /> */}
         <Header />
         {children}
         <Footer />

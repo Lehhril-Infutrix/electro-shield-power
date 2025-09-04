@@ -25,7 +25,7 @@ const ScrollToggleButton = () => {
     <button
       onClick={handleScroll}
       aria-label={atTop ? "Scroll to Bottom" : "Scroll to Top"}
-      className="fixed bottom-[80px] right-6 z-50 p-3 rounded-full bg-[#CC0001] text-white shadow-lg hover:bg-[#a00000] transition"
+      className="fixed bottom-[80px] right-6 z-50 p-3 rounded-full bg-[#CC0001] text-white shadow-lg hover:bg-[#a00000] transition cursor-pointer"
     >
       {atTop ? (
         <ArrowDown className="w-5 h-5" />
