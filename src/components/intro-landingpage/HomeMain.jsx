@@ -30,7 +30,7 @@ const HomeMain = () => {
   return (
     <>
       {/* <Banner /> */}
-      {/* <HeroBanner /> */}
+      <HeroBanner />
       <DivCards />
       <AboutParent />
       <DivisionHighlights />

@@ -83,7 +83,7 @@ export default function Footer() {
             {data.company.name}
           </h2>
           <p className="text-gray-400 mb-4">{data.company.desc}</p>
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <a
               href="#"
               className="bg-[#CC0001] w-10 h-10 flex justify-center items-center rounded-full hover:bg-[#ab0001] transition"
@@ -105,7 +105,7 @@ export default function Footer() {
             >
               <Linkedin className="w-5 h-5 text-white" />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Useful Links */}
@@ -183,8 +183,13 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="mt-10 border-t border-gray-700 py-3 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} {data.company.name}. All Rights Reserved.
+        © {new Date().getFullYear()} {data.company.name}. All Rights Reserved |
+        <span className="block sm:inline sm:ml-2">
+          Website Crafted by <a href="https://infutrix.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">Infutrix</a>
+        </span>
       </div>
+
+
     </footer>
   );
 }

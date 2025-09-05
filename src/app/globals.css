@@ -36,6 +36,9 @@
 body {
   font-family: 'Outfit', Arial, Helvetica, sans-serif;
 }
+a,button{
+  cursor: pointer;
+}
 .container{
   max-width: 1600px;
   padding-inline: 40px;
@@ -51,7 +54,7 @@ body {
   padding-left: 1.2em;
   font-size: 16px;
   font-weight: 500;
-  border-radius: 0.9rem;
+  border-radius: 0.5rem;
   border: none;
   letter-spacing: normal;
   display: flex;
@@ -73,7 +76,7 @@ body {
   justify-content: center;
   height: 2em;
   width: 2em;
-  border-radius: 0.7rem;
+  border-radius: 0.4rem;
   box-shadow: 0.1em 0.1em 0.6em 0.2em var(--accent-color);
   right: 0.3em;
   transition: all 0.3s;
@@ -146,4 +149,10 @@ html{
 
 .d-card > a:hover .d-card-content {
     bottom: 40px;
+}
+
+@media (max-width: 1280px) and (min-width: 767px) {
+  .d-card-content {
+    bottom: -135px;
+  }
 }

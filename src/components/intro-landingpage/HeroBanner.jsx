@@ -1,146 +1,152 @@
-// HeroIndustrialV2.jsx
+// BannerWithSlideshow.jsx
 "use client";
 
+import React, { useRef } from "react";
+import Slider from "react-slick";
 import Link from "next/link";
-import RightShowcaseSlick from "./UI/RightShowcaseSlick";
+import { Check, Activity, Minus } from "lucide-react"
 
 /**
- * Industrial banner: tactile, material, engineered.
- * - Left-aligned content for editorial/manufacturing tone
- * - Brushed-metal texture + noise overlay
- * - Sturdy CTAs and credibility chips
- * - No SaaS pastel vibes
+ * BannerWithSlideshow
+ * - Uses react-slick background slideshow (images or videos)
+ * - Foreground content sits on top with overlay
+ *
+ * IMPORTANT:
+ * - Ensure you import slick css globally in app/layout.js or pages/_app.js:
+ *   import "slick-carousel/slick/slick.css";
+ *   import "slick-carousel/slick/slick-theme.css";
+ *
+ * Replace slide src values with your real assets.
  */
 
-export default function HeroIndustrialV2() {
+const SLIDES = [
+  // Videos autoplay muted/looped. Use mp4/webm under public/videos/
+  { id: "v1", type: "video", src: "/videos/paint_video.mp4" },
+  { id: "v2", type: "video", src: "/videos/electro_video.mp4" },
+];
+
+export default function BannerWithSlideshow() {
+  const sliderRef = useRef(null);
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    cssEase: "cubic-bezier(.2,.9,.2,1)",
+    accessibility: true,
+    swipe: true,
+    adaptiveHeight: false,
+    // fade gives a cleaner background crossfade
+    fade: true,
+  };
+
   return (
-    <section className="relative overflow-hidden bg-[--hero-bg]">
-      {/* Background base gradient (muted material tones) */}
+    <section className="relative h-[600px] sm:h-[90vh] flex items-center overflow-hidden">
+      {/* SLIDES - absolute, full-bleed */}
       <div
-        className="absolute inset-0"
-        style={{
-          // warm concrete -> steel
-          background:
-            "linear-gradient(90deg, rgba(240,238,236,1) 0%, rgba(222,84,66,0.06) 35%, rgba(10,28,50,0.14) 100%)",
-        }}
-        aria-hidden
-      />
-
-      {/* brushed-metal diagonal lines (subtle) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, rgba(0,0,0,0) 1px 16px)",
-          mixBlendMode: "overlay",
-        }}
-      />
-
-      {/* subtle noise grain using inline SVG data-uri */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><filter id=\"f\"><feTurbulence baseFrequency=\"0.9\" numOctaves=\"1\" stitchTiles=\"stitch\"/><feColorMatrix type=\"saturate\" values=\"0\"/></filter><rect width=\"100%\" height=\"100%\" filter=\"url(%23f)\" opacity=\"0.03\"/></svg>')",
-          mixBlendMode: "overlay",
-        }}
-      />
-
-      {/* faint industrial emblem/gear (decorative) */}
-      <svg
-        aria-hidden
-        className="absolute right-8 top-12 opacity-10 w-80 h-80 pointer-events-none"
-        viewBox="0 0 200 200"
-        fill="none"
+        className="absolute inset-0 -z-10"
+        onMouseEnter={() => sliderRef.current?.slickPause?.()}
+        onMouseLeave={() => sliderRef.current?.slickPlay?.()}
       >
-        <path
-          d="M100 30 L112 40 L128 36 L132 52 L148 56 L140 72 L152 88 L136 96 L136 116 L120 124 L112 140 L96 136 L80 144 L68 128 L52 132 L44 116 L28 108 L36 92 L24 76 L40 68 L44 52 L60 48 L64 32 Z"
-          stroke="#000"
-          strokeWidth="2"
-        />
-      </svg>
+        <Slider ref={sliderRef} {...settings}>
+          {SLIDES.map((s) => (
+            <div key={s.id} className="relative w-full h-[600px] sm:h-[90vh]">
+              {s.type === "video" ? (
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  // preload metadata to balance performance
+                  preload="metadata"
+                  src={s.src}
+                />
+              ) : (
+                <div
+                  className="w-full h-full bg-center bg-cover"
+                  style={{ backgroundImage: `url(${s.src})` }}
+                  role="img"
+                  aria-label=""
+                />
+              )}
+              {/* optional subtle gradient overlay per-slide if you want unique tone:
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/10 pointer-events-none" />
+              */}
+            </div>
+          ))}
+        </Slider>
+      </div>
 
-      {/* Foreground content */}
-      <div className="relative container mx-auto px-6 py-20 md:py-28">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Content column (left) */}
-          <div className="order-1 md:order-1">
-            {/* credibility chips */}
-            <div className="flex flex-wrap gap-3 mb-4">
-              <Badge text="ISO 9001" />
-              <Badge text="40+ Years" />
-              <Badge text="R&D Tested" />
+      {/* global overlay (dark) for consistent readability */}
+      <div className="absolute inset-0 bg-black/60 -z-5 pointer-events-none" />
+
+      {/* Foreground content (updated to highlight both divisions) */}
+      <div className="relative z-10 container px-6">
+        <div className="max-w-4xl md:mx-0">
+          {/* micro-tag */}
+          <span className="bg-[#CC0001] text-white px-3 py-2 rounded text-xs sm:text-sm font-medium uppercase tracking-wide inline-block">
+            ElectroShield Power Group
+          </span>
+
+          {/* main heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug sm:leading-tight md:leading-[1.05] mt-4">
+            Engineered Coatings <br className="hidden sm:block" />
+            & Reliable Power Components
+          </h1>
+
+          {/* short description */}
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 max-w-2xl">
+            With 40+ years of industrial manufacturing, we combine advanced R&D and rigorous
+            production to deliver long-lasting coatings and precision transformer components.
+            Trusted by utilities and manufacturers for performance, safety, and consistency.
+          </p>
+
+          {/* credibility chips */}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">
+              <Check className="w-3 h-3 text-[#b62b25] opacity-90" strokeWidth={2} />
+              ISO 9001 Certified
             </div>
 
-            {/* headline - slightly narrower, heavier, industrial tone */}
-            <h1
-              className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Engineered Coatings & <span className="text-[#b63e34]">Power Components</span>
-            </h1>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">
+              <Activity className="w-3 h-3 text-[#b62b25] opacity-90" strokeWidth={1.6} />
+              40+ Years Experience
+            </div>
 
-            {/* supporting line */}
-            <p className="mt-5 max-w-2xl text-slate-700 text-base md:text-lg">
-              Over four decades of manufacturing excellence — protective coatings and
-              transformer components designed for long-term performance and industrial use.
-            </p>
-
-            {/* CTAs */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link href="/dreamshield" className="inline-block">
-                <button
-                  className="px-6 py-3 bg-[#b40000] hover:bg-[#9c0000] text-white rounded-md font-semibold shadow-md transition"
-                  aria-label="Explore DreamShield"
-                >
-                  Explore DreamShield
-                </button>
-              </Link>
-
-              <Link href="/electroshield" className="inline-block">
-                <button
-                  className="px-6 py-3 border-2 border-[#b40000] bg-transparent text-[#111827] rounded-md font-semibold shadow-sm transition hover:bg-[#fff5f5]"
-                  aria-label="Explore ElectroShield"
-                >
-                  Explore ElectroShield
-                </button>
-              </Link>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">
+              <Minus className="w-3 h-3 text-[#b62b25] opacity-90" strokeWidth={1.6} />
+              In-house R&D & Testing
             </div>
           </div>
 
-          {/* Visual column (right) - texture panel + optional image placeholder */}
-          <div className="order-2 md:order-2 flex justify-end">
-            <RightShowcaseSlick
-              items={[
-                { id: "p1", title: "Advanced Coatings", caption: "Durable finishes", image: "/images/div_img1.webp", href: "/dreamshield" },
-                { id: "t1", title: "Transformer Components", caption: "Engineered cores & parts", image: "/images/div_img2.webp", href: "/electroshield" },
-              ]}
-              settings={{ autoplaySpeed: 5000 }}
-            />
+          {/* main CTAs */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <Link href="/dreamshield">
+              <button className="inline-block bg-[#CC0001] text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-[#b70000] transition">
+                Explore DreamShield
+              </button>
+            </Link>
+
+            <Link href="/electroshield">
+              <button className="inline-block border border-white/30 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition">
+                Explore ElectroShield
+              </button>
+            </Link>
+
           </div>
+
+          {/* divider + dual division cards */}
+
         </div>
       </div>
 
-      {/* small accessibility note: no motion heavy animations */}
-      <style jsx>{`
-        @media (prefers-reduced-motion: reduce) {
-          /* nothing animated here; respect user preference */
-        }
-      `}</style>
     </section>
-  );
-}
-
-/* tiny badge/chip used for credibility */
-function Badge({ text }) {
-  return (
-    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">
-      <svg width="12" height="12" viewBox="0 0 24 24" className="opacity-90" fill="none">
-        <path d="M5 13l4 4L19 7" stroke="#b62b25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span>{text}</span>
-    </div>
   );
 }

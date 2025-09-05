@@ -11,6 +11,8 @@ const Header = () => {
   const pathname = usePathname();
 
   let navItems = [];
+  let cta = null;
+  let logo = null;
 
   if (pathname === "/") {
     navItems = [
@@ -18,6 +20,8 @@ const Header = () => {
       { name: "About", href: "#about-parent" },
       { name: "Contact", href: "#contact" },
     ];
+    cta = { name: "Explore", href: "#brand-highlights" };
+    logo = { href: "/" };
   } else if (pathname.startsWith("/electroshield")) {
     navItems = [
       { name: "About", href: "#about" },
@@ -26,7 +30,9 @@ const Header = () => {
       { name: "Testimonials", href: "#testimonials" },
       { name: "Contact Us", href: "#contact" },
     ];
-  } else if (pathname === "/dreamshield") {
+    cta = { name: "Explore Products", href: "#products" };
+    logo = { href: "/electroshield" };
+  } else if (pathname.startsWith("/dreamshield")) {
     navItems = [
       { name: "About", href: "#about" },
       { name: "R&D", href: "#r&d" },
@@ -35,8 +41,9 @@ const Header = () => {
       { name: "Careers", href: "#careers" },
       { name: "Contact Us", href: "#contact" },
     ];
+    cta = { name: "Explore Products", href: "#products" };
+    logo = { href: "/dreamshield" };
   }
-
 
   return (
     <header className="bg-[#171717] shadow-md sticky top-0 w-full z-50">
@@ -45,15 +52,17 @@ const Header = () => {
         <div className="hidden md:flex items-center justify-between py-3">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/Logo_Final.png"
-                className="w-10 h-auto sm:w-14"
-                alt="Electroshield Logo"
-                width={150}
-                height={50}
-              />
-            </Link>
+            {logo && (
+              <Link href={logo.href} className="flex items-center">
+                <Image
+                  src="/images/Logo_Final.png"
+                  className="w-10 h-auto sm:w-14"
+                  alt="Electroshield Logo"
+                  width={150}
+                  height={50}
+                />
+              </Link>
+            )}
           </div>
 
           {/* Center: Nav */}
@@ -62,7 +71,7 @@ const Header = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="text-nowrap text-white hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-light"
+                className="text-nowrap text-white hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-bold"
               >
                 {item.name}
               </Link>
@@ -71,9 +80,11 @@ const Header = () => {
 
           {/* Right: CTA Button */}
           <div className="flex-1 flex justify-end">
-            <Link href="#products">
-              <Button>Explore</Button>
-            </Link>
+            {cta && (
+              <Link href={cta.href}>
+                <Button>{cta.name}</Button>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -93,7 +104,7 @@ const Header = () => {
           {/* Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800 hover:text-[#CC0001] focus:outline-none"
+            className="text-white hover:text-[#CC0001] focus:outline-none"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -106,17 +117,17 @@ const Header = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="text-gray-800 hover:text-[#CC0001] transition-colors text-lg font-semibold"
+                className="text-white hover:text-[#CC0001] transition-colors text-lg font-semibold"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <Button className="w-fit">
-              <Link href="#products" onClick={() => setIsOpen(false)}>
-                Explore
-              </Link>
-            </Button>
+            {cta && (
+              <Button className="w-fit" onClick={() => setIsOpen(false)}>
+                <Link href={cta.href}>{cta.name}</Link>
+              </Button>
+            )}
           </div>
         )}
       </div>

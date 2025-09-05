@@ -50,7 +50,7 @@ const DivCards = () => {
               className="group relative rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               {/* Background image */}
-              <div className="relative h-126 w-full">
+              <div className="relative h-120 w-full">
                 <Image
                   src={division.image}
                   alt={division.name}
@@ -63,7 +63,7 @@ const DivCards = () => {
 
               {/* Content overlay */}
               <div className="absolute flex flex-col items-center justify-center text-center px-6 text-white d-card-content">
-                <h2 className="text-2xl md:text-3xl font-light uppercase tracking-wider mb-4">
+                <h2 className="text-2xl md:text-3xl font-light uppercase tracking-wider mb-6">
                   {division.name}
                 </h2>
                 <p className="mb-5 text-sm md:text-base max-w-md">
