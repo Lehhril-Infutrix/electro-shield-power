@@ -1,17 +1,14 @@
-import HomeMain from '@/components/electroshield/HomeMain'
+import HomeMain from '@/components/dreamshield/HomeMain'
 import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "aos/dist/aos.css";
 
-
-const page = () => {
+const Page = () => {
   return (
-    <>
-      <HomeMain />
-    </>
+    <><HomeMain /></>
   )
 }
 
-export default page
+export default Page

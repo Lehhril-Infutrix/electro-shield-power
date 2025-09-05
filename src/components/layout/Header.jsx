@@ -12,7 +12,13 @@ const Header = () => {
 
   let navItems = [];
 
-  if (pathname.startsWith("/electroshield")) {
+  if (pathname === "/") {
+    navItems = [
+      { name: "Divisions", href: "#divisions" },
+      { name: "About", href: "#about-parent" },
+      { name: "Contact", href: "#contact" },
+    ];
+  } else if (pathname.startsWith("/electroshield")) {
     navItems = [
       { name: "About", href: "#about" },
       { name: "Features", href: "#features" },
@@ -20,7 +26,7 @@ const Header = () => {
       { name: "Testimonials", href: "#testimonials" },
       { name: "Contact Us", href: "#contact" },
     ];
-  } else if (pathname === "/") {
+  } else if (pathname === "/dreamshield") {
     navItems = [
       { name: "About", href: "#about" },
       { name: "R&D", href: "#r&d" },
@@ -30,6 +36,7 @@ const Header = () => {
       { name: "Contact Us", href: "#contact" },
     ];
   }
+
 
   return (
     <header className="bg-[#fff] shadow-md sticky top-0 w-full z-50">

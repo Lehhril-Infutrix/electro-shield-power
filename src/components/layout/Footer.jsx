@@ -4,6 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const footerData = {
+  "/": {
+    company: {
+      name: "Electroshield Group",
+      desc: "Delivering innovation across coatings and power solutions for over 40 years. Built on integrity, quality, and trust.",
+    },
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Divisions", href: "#divisions" },
+      { label: "About", href: "#about-parent" },
+      { label: "Contact", href: "#contact" },
+    ],
+    products: ["DreamShield Coatings", "ElectroShield Power"],
+  },
+
   "/electroshield": {
     company: {
       name: "ElectroShield Power",
@@ -27,13 +41,13 @@ const footerData = {
     ],
   },
 
-  "/": {
+  "/dreamshield": {
     company: {
       name: "Dreamshield",
       desc: "Innovative coatings, resins, and adhesives delivering performance, durability, and aesthetics for industrial applications.",
     },
     links: [
-      { label: "Home", href: "/" },
+      { label: "Home", href: "/dreamshield" },
       { label: "About", href: "#about" },
       { label: "R&D", href: "#rnd" },
       { label: "Products", href: "#products" },
@@ -48,11 +62,14 @@ const footerData = {
 export default function Footer() {
   const pathname = usePathname();
 
-  // fallback: use "/" data if no match
-  const data =
-    pathname.startsWith("/electroshield")
-      ? footerData["/electroshield"]
-      : footerData["/"];
+  let data;
+  if (pathname.startsWith("/electroshield")) {
+    data = footerData["/electroshield"];
+  } else if (pathname.startsWith("/dreamshield")) {
+    data = footerData["/dreamshield"];
+  } else {
+    data = footerData["/"];
+  }
 
   return (
     <footer className="bg-[#121212] text-white pt-12">
@@ -132,10 +149,10 @@ export default function Footer() {
             <li className="flex items-start space-x-3">
               <Mail className="text-[#CC0001] w-5 h-5 mt-1" />
               <a
-                href="mailto:info@electroshieldpower.com"
+                href="mailto:info@surfacepaints.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                info@electroshieldpower.com
+                info@surfacepaints.com
               </a>
             </li>
             <li className="flex items-start space-x-3">
