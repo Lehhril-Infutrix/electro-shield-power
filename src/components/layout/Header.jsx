@@ -93,7 +93,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/Logo_1.png"
+              src="/images/Logo_Final.png"
               className="w-10 h-auto sm:w-14"
               alt="Electroshield Logo"
               width={150}
