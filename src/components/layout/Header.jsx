@@ -39,7 +39,7 @@ const Header = () => {
 
 
   return (
-    <header className="bg-[#fff] shadow-md sticky top-0 w-full z-50">
+    <header className="bg-[#171717] shadow-md sticky top-0 w-full z-50">
       <div className="container px-6">
         {/* Desktop Header */}
         <div className="hidden md:flex items-center justify-between py-3">
@@ -62,7 +62,7 @@ const Header = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="text-nowrap text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[20px] font-semibold"
+                className="text-nowrap text-white hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-light"
               >
                 {item.name}
               </Link>
