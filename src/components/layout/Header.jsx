@@ -57,12 +57,12 @@ const Header = () => {
           </div>
 
           {/* Center: Nav */}
-          <nav className="flex-1 flex justify-center space-x-6">
+          <nav className="flex-1 flex justify-center space-x-8">
             {navItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
-                className="text-nowrap text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[18px] font-medium"
+                className="text-nowrap text-gray-800 hover:text-[#CC0001] transition-colors text-[16px] sm:text-[20px] font-semibold"
               >
                 {item.name}
               </Link>

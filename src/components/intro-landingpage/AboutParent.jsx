@@ -14,7 +14,7 @@ const stats = [
 
 const AboutParent = () => {
   return (
-    <section className="w-full bg-beige py-20">
+    <section className="w-full bg-beige py-20 scroll-m-16" id="about-parent">
       <div className="container text-center">
         <h3 className="text-lg font-semibold text-red-600">About Us</h3>
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">

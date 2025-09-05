@@ -15,7 +15,10 @@ const footerData = {
       { label: "About", href: "#about-parent" },
       { label: "Contact", href: "#contact" },
     ],
-    products: ["DreamShield Coatings", "ElectroShield Power"],
+    products: [
+      { label: "DreamShield Coatings", href: "/dreamshield" },
+      { label: "ElectroShield Power", href: "/electroshield" },
+    ],
   },
 
   "/electroshield": {
@@ -123,13 +126,20 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Our Products</h3>
           <ul className="space-y-2 text-gray-400">
-            {data.products.map((product, i) => (
-              <li key={i}>
-                <Link href="#products" className="hover:text-white">
-                  {product}
-                </Link>
-              </li>
-            ))}
+            {data.products.map((product, i) => {
+              // Handle objects (with href) vs. strings
+              const label = typeof product === "string" ? product : product.label;
+              const href =
+                typeof product === "string" ? "#products" : product.href;
+
+              return (
+                <li key={i}>
+                  <Link href={href} className="hover:text-white">
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

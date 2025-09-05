@@ -17,7 +17,7 @@ const divisions = [
     name: "ElectroShield Power",
     description:
       "Providing precision-engineered transformer components designed for safety, reliability, and long-term power efficiency.",
-    image: "/images/div_img2.webp", // replace with real asset
+    image: "/images/div_img5.webp", // replace with real asset
     href: "/electroshield",
   },
 ];
@@ -25,10 +25,10 @@ const divisions = [
 
 const DivCards = () => {
   return (
-    <section className="w-full bg-slate-50 py-16">
+    <section className="w-full bg-slate-50 py-10 scroll-m-16" id="divisions">
       <div className="container mx-auto px-6">
         {/* Section Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        {/* <div className="max-w-3xl mx-auto text-center mb-12">
           <h3 className="text-lg font-semibold text-red-600">
             Our Divisions
           </h3>
@@ -39,18 +39,18 @@ const DivCards = () => {
             From advanced coatings to reliable transformer components, our
             divisions are driven by innovation, quality, and trust.
           </p>
-        </div>
+        </div> */}
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 d-card">
           {divisions.map((division, idx) => (
             <Link
               key={idx}
               href={division.href}
-              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+              className="group relative rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               {/* Background image */}
-              <div className="relative h-100 w-full">
+              <div className="relative h-126 w-full">
                 <Image
                   src={division.image}
                   alt={division.name}
@@ -58,12 +58,12 @@ const DivCards = () => {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Dark gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
               </div>
 
               {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <div className="absolute flex flex-col items-center justify-center text-center px-6 text-white d-card-content">
+                <h2 className="text-2xl md:text-3xl font-light uppercase tracking-wider mb-4">
                   {division.name}
                 </h2>
                 <p className="mb-5 text-sm md:text-base max-w-md">

@@ -126,3 +126,24 @@ html{
   background: url('../../public/images/dream_banner.webp') 0% 0% no-repeat;
   background-size: cover;
 }
+
+
+/* Div cards */
+.d-card-content {
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    transition: all 0.3s ease-in-out;
+}
+.d-card > a img {
+    filter: grayscale(1);
+    transition: all 0.2s ease-in;
+}
+.d-card > a:hover img {
+    filter: grayscale(0);
+}
+
+.d-card > a:hover .d-card-content {
+    bottom: 40px;
+}

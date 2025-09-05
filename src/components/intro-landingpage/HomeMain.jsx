@@ -7,6 +7,7 @@ import DivisionHighlights from './DivisionHighlights'
 import Contact from './Contact'
 import AOS from 'aos';
 import LandingCTA from './LandingCTA'
+import HeroBanner from './HeroBanner'
 
 const HomeMain = () => {
 
@@ -28,7 +29,8 @@ const HomeMain = () => {
 
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
+      {/* <HeroBanner /> */}
       <DivCards />
       <AboutParent />
       <DivisionHighlights />
