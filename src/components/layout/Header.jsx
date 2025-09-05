@@ -31,7 +31,7 @@ const Header = () => {
       { name: "Contact Us", href: "#contact" },
     ];
     cta = { name: "Explore Products", href: "#products" };
-    logo = { href: "/electroshield" };
+    logo = { href: "/" };
   } else if (pathname.startsWith("/dreamshield")) {
     navItems = [
       { name: "About", href: "#about" },
@@ -42,7 +42,7 @@ const Header = () => {
       { name: "Contact Us", href: "#contact" },
     ];
     cta = { name: "Explore Products", href: "#products" };
-    logo = { href: "/dreamshield" };
+    logo = { href: "/" };
   }
 
   return (
