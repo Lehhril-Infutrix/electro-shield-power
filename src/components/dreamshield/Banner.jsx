@@ -50,9 +50,10 @@ const Banner = () => {
             <div className="flex items-center justify-center space-x-2 bg-white p-2 rounded-md">
               <CheckCircle className="text-accent w-5 h-5" />
               <span className="text-sm sm:text-base text-accent">
-                40+ Years of Expertise
+                {new Date().getFullYear() - 1978}+ Years of Expertise
               </span>
             </div>
+
             <div className="flex items-center justify-center space-x-2 bg-white p-2 rounded-md">
               <CheckCircle className="text-accent w-5 h-5" />
               <span className="text-sm sm:text-base text-accent">

@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone } from "lucide-react";
 import Button from "../UI/Button";
 
 const MAX_MSG = 250;
-const ACCESS_KEY = process.env.NEXT_PUBLIC_ACCESS_KEY || "";
+// const ACCESS_KEY = process.env.NEXT_PUBLIC_ACCESS_KEY || "";
 
 const Contact = () => {
   const [message, setMessage] = useState("");
@@ -42,7 +42,7 @@ const Contact = () => {
     setSubmitting(true);
     setStatus({ ok: true, text: "Sending..." });
 
-    formData.append("access_key", ACCESS_KEY);
+    formData.append("access_key", process.env.NEXT_PUBLIC_ACCESS_KEY);
     formData.append("from_name", "Website Contact");
     formData.append("subject", "New contact form submission");
     if (typeof window !== "undefined") formData.append("page", window.location.href);

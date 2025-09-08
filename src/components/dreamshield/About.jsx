@@ -6,6 +6,8 @@ import Link from "next/link";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("values");
+  const foundingYear = 1978;
+  const years = new Date().getFullYear() - foundingYear;
 
   return (
     <section id="about" className="py-20 scroll-m-16 bg-[#fff]">
@@ -19,9 +21,11 @@ const About = () => {
           >
             <Image
               src="/images/About_img3.webp"
-              alt="Electroshield facility"
+              alt="Dreamshield production facility"
               width={300}
               height={300}
+              loading="lazy"
+              decoding="async"
               className="rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 w-full h-auto"
             />
           </div>
@@ -39,7 +43,7 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Electroshield Power Industries (Dreamshield Division), established in 1978 and ISO 9001:2008 certified, has grown from resin and adhesive manufacturing into a leader in coatings and industrial paints. We specialize in acrylic, epoxy, polyester, and alkyd-amino based coatings, serving industries with durability, performance, and innovation.
+              Electroshield Power Industries (Dreamshield Division), established in {foundingYear} and ISO 9001:2008 certified, has expanded from resin and adhesive manufacturing into a leader in coatings and industrial paints. We specialize in acrylic, epoxy, polyester, and alkyd-amino based coatings, serving industries with durability, performance, and innovation.
             </p>
 
             {/* Quick stats */}
@@ -47,15 +51,15 @@ const About = () => {
               <div
                 className="border-l-4 border-l-[#CC0001] pl-4"
                 data-aos="zoom-in"
-                data-aos-delay="300"
+                data-aos-delay={300}
               >
-                <span className="block text-4xl font-bold text-gray-900">45+</span>
+                <span className="block text-4xl font-bold text-gray-900">{years}+</span>
                 <span className="block text-gray-600">Years of Excellence</span>
               </div>
               <div
                 className="border-l-4 border-l-[#CC0001] pl-4"
                 data-aos="zoom-in"
-                data-aos-delay="500"
+                data-aos-delay={500}
               >
                 <span className="block text-4xl font-bold text-gray-900">ISO</span>
                 <span className="block text-gray-600">9001:2008 Certified</span>
@@ -63,8 +67,10 @@ const About = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-8 border-b border-gray-200">
+            <div role="tablist" className="flex flex-col sm:flex-row sm:space-x-4 mb-8 border-b border-gray-200">
               <button
+                role="tab"
+                aria-selected={activeTab === "values"}
                 onClick={() => setActiveTab("values")}
                 className={`py-2 px-4 font-semibold cursor-pointer ${
                   activeTab === "values"
@@ -75,6 +81,8 @@ const About = () => {
                 Our Values
               </button>
               <button
+                role="tab"
+                aria-selected={activeTab === "quality"}
                 onClick={() => setActiveTab("quality")}
                 className={`py-2 px-4 font-semibold cursor-pointer ${
                   activeTab === "quality"
@@ -99,7 +107,7 @@ const About = () => {
             )}
 
             <div data-aos="fade-up" data-aos-delay="800">
-              <Link href="/dreamshield#r&d">
+              <Link href="/dreamshield#r%26d">
                 <Button>More About Us</Button>
               </Link>
             </div>

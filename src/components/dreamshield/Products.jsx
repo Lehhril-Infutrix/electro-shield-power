@@ -229,9 +229,9 @@ export default function Products() {
                       <div className="text-sm font-medium text-slate-900 truncate">{sp.name || sp}</div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414L13.414 10l-4.707 4.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
+                    </svg> */}
                   </button>
                 ))}
               </div>
@@ -273,12 +273,12 @@ export default function Products() {
               </div>
 
               <div className="flex items-center gap-2">
-                <button
+                {/* <button
                   onClick={() => setPinnedIdx((cur) => (cur === activeIdx ? null : activeIdx))}
                   className={`text-xs px-2 py-1 rounded-md border ${pinnedIdx === activeIdx ? "bg-[#CC0001] text-white border-[#CC0001]" : "bg-white text-slate-700 border-slate-200"}`}
                 >
                   {pinnedIdx === activeIdx ? "Pinned" : "Pin"}
-                </button>
+                </button> */}
 
                 <button onClick={() => setHoveredIdx(null)} className="p-2 rounded-md text-slate-600 hover:bg-slate-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -297,6 +297,10 @@ export default function Products() {
                   }}
                   className="flex items-center gap-3 p-3 rounded-md hover:bg-slate-50 w-full text-left"
                 >
+                    {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414L13.414 10l-4.707 4.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg> */}
+
                   <div className="w-12 h-12 rounded-md overflow-hidden bg-slate-50 border border-slate-100">
                     <img src={sp.thumb || products[activeIdx].image} alt={sp.name || sp} className="w-full h-full object-cover" />
                   </div>
@@ -305,14 +309,12 @@ export default function Products() {
                     <div className="text-sm font-medium text-slate-900">{sp.name || sp}</div>
                   </div>
 
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001]" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414L13.414 10l-4.707 4.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
+                  
                 </button>
               ))}
             </div>
 
-            <div className="mt-4 text-center text-xs text-slate-500">Tap outside or press close to dismiss</div>
+            {/* <div className="mt-4 text-center text-xs text-slate-500">Tap outside or press close to dismiss</div> */}
           </div>
         </div>
       </div>
