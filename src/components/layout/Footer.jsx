@@ -1,6 +1,7 @@
 "use client";
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const footerData = {
@@ -106,6 +107,9 @@ export default function Footer() {
               <Linkedin className="w-5 h-5 text-white" />
             </a>
           </div> */}
+          <div className="border-t border-[#d9d9d9] mt-6 pt-4">
+            <Image src="/images/qr_code.svg" alt="Company Logo" width={150} height={150} />
+          </div>
         </div>
 
         {/* Useful Links */}
