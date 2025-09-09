@@ -4,7 +4,7 @@ import React from "react";
 import { Globe2, Award, Users, Calendar } from "lucide-react";
 
 const stats = [
-  { icon: <Calendar className="h-8 w-8 text-red-600" />, value: "45+", label: "Years of Experience" },
+  { icon: <Calendar className="h-8 w-8 text-red-600" />, value: "Several", label: "Years of Experience" },
   { icon: <Globe2 className="h-8 w-8 text-red-600" />, value: "10+", label: "Countries Served" },
   { icon: <Award className="h-8 w-8 text-red-600" />, value: "ISO", label: "9001 Certified" },
   { icon: <Users className="h-8 w-8 text-red-600" />, value: "500+", label: "Skilled Professionals" },
@@ -28,7 +28,7 @@ const AboutParent = () => {
           <h3 className="text-lg font-semibold text-red-600">About Us</h3>
           <h2
             id="about-parent-title"
-            className="text-3xl md:text-4xl font-bold text-slate-900 mt-2"
+            className="text-3xl md:text-4xl font-bold text-heading mt-2"
           >
             About Our Parent Company
           </h2>
@@ -41,7 +41,7 @@ const AboutParent = () => {
           data-aos-duration="800"
           data-aos-delay="120"
         >
-          With over 40 years of expertise, we’ve built a reputation on quality,
+          With several years of expertise, we’ve built a reputation on quality,
           integrity, and innovation. Our group unites divisions that deliver
           advanced coatings and reliable power solutions trusted across industries.
         </p>

@@ -35,7 +35,7 @@ const About = () => {
             <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
               About Dreamshield Division
             </h2>
-            <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h3 className="text-3xl lg:text-5xl font-bold text-heading mb-6 leading-tight">
               A Legacy of Quality, Integrity & Innovation
             </h3>
             <p
@@ -53,7 +53,8 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay={300}
               >
-                <span className="block text-4xl font-bold text-gray-900">{years}+</span>
+                {/* <span className="block text-4xl font-bold text-heading">{years}+</span> */}
+                <span className="block text-4xl font-bold text-heading">Several</span>
                 <span className="block text-gray-600">Years of Excellence</span>
               </div>
               <div
@@ -61,7 +62,7 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay={500}
               >
-                <span className="block text-4xl font-bold text-gray-900">ISO</span>
+                <span className="block text-4xl font-bold text-heading">ISO</span>
                 <span className="block text-gray-600">9001:2008 Certified</span>
               </div>
             </div>

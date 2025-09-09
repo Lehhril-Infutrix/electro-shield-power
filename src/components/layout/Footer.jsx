@@ -80,9 +80,9 @@ export default function Footer() {
       <div className="container grid md:grid-cols-4 gap-10">
         {/* Company Info */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">
-            {data.company.name}
-          </h2>
+          <Link href={'/'}>
+            <Image src="/images/Logo_Final.png" alt="Company Logo" width={56} height={56} />
+          </Link>
           <p className="text-gray-400 mb-4">{data.company.desc}</p>
           {/* <div className="flex space-x-4">
             <a
@@ -107,18 +107,20 @@ export default function Footer() {
               <Linkedin className="w-5 h-5 text-white" />
             </a>
           </div> */}
-          <div className="border-t border-[#d9d9d9] mt-6 pt-4">
-            <Image src="/images/qr_code.svg" alt="Company Logo" width={150} height={150} />
+          <div className="border-t border-[#d9d9d94a] mt-6 pt-4">
+            <Link href="https://wa.me/919875983535">
+              <Image src="/images/qr_code.svg" alt="Company Logo" width={150} height={150} />
+            </Link>
           </div>
         </div>
 
         {/* Useful Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
+        <div className="sm:ps-8">
+          <h3 className="text-lg font-semibold mb-3 foot-heading relative">Useful Links</h3>
           <ul className="space-y-2 text-gray-400">
             {data.links.map((link, i) => (
               <li key={i}>
-                <Link href={link.href} className="hover:text-white">
+                <Link href={link.href} className="hover:text-white cursor-pointer">
                   {link.label}
                 </Link>
               </li>
@@ -128,7 +130,7 @@ export default function Footer() {
 
         {/* Products */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Our Products</h3>
+          <h3 className="text-lg font-semibold mb-3 foot-heading relative">Our Products</h3>
           <ul className="space-y-2 text-gray-400">
             {data.products.map((product, i) => {
               // Handle objects (with href) vs. strings
@@ -138,7 +140,7 @@ export default function Footer() {
 
               return (
                 <li key={i}>
-                  <Link href={href} className="hover:text-white">
+                  <Link href={href} className="hover:text-white cursor-pointer">
                     {label}
                   </Link>
                 </li>
@@ -149,7 +151,7 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
+          <h3 className="text-lg font-semibold mb-3 foot-heading relative">Get In Touch</h3>
           <ul className="space-y-4">
             <li className="flex items-start space-x-3">
               <Phone className="text-[#CC0001] w-5 h-5 mt-1" />

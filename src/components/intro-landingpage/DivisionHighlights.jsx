@@ -79,7 +79,7 @@ const DivisionHighlights = () => {
                 <span className="text-sm font-semibold text-red-600 mb-2 uppercase tracking-wide">
                   {s.label}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
                   {s.name}
                 </h2>
                 <p className="text-slate-600 mb-6">{s.description}</p>

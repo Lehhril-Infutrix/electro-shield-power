@@ -18,7 +18,7 @@ const RND = () => {
           Research & Development
         </h2>
         <h3
-          className="text-3xl lg:text-5xl font-bold text-gray-900 mb-12 leading-tight"
+          className="text-3xl lg:text-5xl font-bold text-heading mb-12 leading-tight"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -35,7 +35,7 @@ const RND = () => {
             <span className="block text-2xl text-[#656565] font-extralight mb-4 border-b border-[#2a262230] pb-4">
               01
             </span>
-            <h4 className="text-2xl font-semibold mb-2 text-[#2a2622]">
+            <h4 className="text-2xl font-semibold mb-2 text-heading">
               Innovation
             </h4>
             <p className="text-[#7e7e7e]">

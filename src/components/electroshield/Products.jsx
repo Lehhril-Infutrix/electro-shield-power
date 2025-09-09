@@ -69,7 +69,7 @@ const Products = () => {
           <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
             Our Products
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 leading-tight">
+          <h3 className="text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">
             Engineered for Reliability
           </h3>
           <p className="text-gray-600">
@@ -94,7 +94,7 @@ const Products = () => {
                 className="w-full h-72 object-cover"
               />
               <div className="p-6">
-                <h4 className="text-xl font-bold text-gray-900 mb-2">
+                <h4 className="text-xl font-bold text-heading mb-2">
                   {product.title}
                 </h4>
                 <p className="mb-2">{product.short_desc}</p>

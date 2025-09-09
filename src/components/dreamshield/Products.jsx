@@ -325,7 +325,7 @@ export default function Products() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">Our Products</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 leading-tight">Performance Backed by Science</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">Performance Backed by Science</h3>
           <p className="text-gray-600">Electroshield Power Industries offers a wide range of coatings, primers, thinners, and adhesives.</p>
         </div>
 
@@ -359,7 +359,7 @@ export default function Products() {
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-4 md:p-6">
-                  <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">{p.title}</h4>
+                  <h4 className="text-lg md:text-xl font-semibold text-heading mb-1">{p.title}</h4>
                   <p className="text-sm text-gray-600">{p.short_desc}</p>
                 </div>
               </button>

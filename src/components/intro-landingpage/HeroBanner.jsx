@@ -117,7 +117,7 @@ export default function BannerWithSlideshow() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">
               <Activity className="w-3 h-3 text-[#b62b25] opacity-90" strokeWidth={1.6} />
-              40+ Years Experience
+              Several Year's of Experience
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 text-sm font-medium text-slate-900 shadow-sm border border-slate-200">

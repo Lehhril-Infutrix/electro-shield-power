@@ -6,7 +6,7 @@ const features = [
     icon: (
       "key_icon1"
     ),
-    title: '25+ Years of Expertise',
+    title: 'Several Year\'s of Experience',
     description:
       'Driven by technocrats with decades of experience in electrical engineering, manufacturing, and operations.',
   },
@@ -45,7 +45,7 @@ const KeyFeatures = () => {
           <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
             Why Choose Us
           </h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 leading-tight">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">
             Key Strengths of Electroshield Power
           </h3>
           <p className="text-gray-600 text-sm sm:text-base">
@@ -69,7 +69,7 @@ const KeyFeatures = () => {
               <div className="mb-4">
                 <Image src={`/images/${feature.icon}.svg`} alt={feature.title} width={56} height={56} />
               </div>
-              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
+              <h4 className="text-lg sm:text-xl font-bold text-heading mb-2">{feature.title}</h4>
               <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
             </div>
           ))}

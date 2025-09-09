@@ -71,7 +71,7 @@ const Contact = () => {
       <div className="container grid md:grid-cols-2 gap-12">
         {/* LEFT: Info + small map */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-semibold text-gray-900">Contact Info</h3>
+          <h3 className="text-2xl font-semibold text-heading">Contact Info</h3>
           {[
             { icon: Phone, label: "Call us", content: "+91 98 759 83535", href: "tel:+919875983535" },
             { icon: MapPin, label: "Find us", content: "C-12, Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
@@ -131,7 +131,7 @@ const Contact = () => {
 
         {/* RIGHT: Form */}
         <div className="bg-[var(--beige)] border border-[#efe7d8] rounded-2xl shadow-sm p-6 sm:p-8" data-aos="fade-left" data-aos-duration="900">
-          <h3 className="text-2xl font-semibold text-gray-900">Get in touch.</h3>
+          <h3 className="text-2xl font-semibold text-heading">Get in touch.</h3>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-6" noValidate>
             {/* Honeypot */}

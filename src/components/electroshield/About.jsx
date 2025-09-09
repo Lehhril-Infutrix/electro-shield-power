@@ -28,12 +28,12 @@ const About = () => {
 
           {/* Right Side Content */}
           <div className="col-span-4 md:col-span-2">
-            <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
+            <h3 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
               About Electroshield
-            </h2>
-            <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Innovation, Precision & Reliability in Transformer Components
             </h3>
+            <h2 className="text-3xl lg:text-5xl font-bold text-heading mb-6 leading-tight">
+              Innovation, Precision & Reliability in Transformer Components
+            </h2>
             <p
               className="text-gray-600 mb-8"
               data-aos="fade-up"
@@ -53,15 +53,15 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay="300"
               >
-                <span className="block text-4xl font-bold text-gray-900">25+</span>
-                <span className="block text-gray-600">Years Expertise</span>
+                <span className="block text-4xl font-bold text-heading">Several</span>
+                <span className="block text-gray-600">Years of Expertise</span>
               </div>
               <div
                 className="border-l-4 border-l-[#CC0001] pl-4"
                 data-aos="zoom-in"
                 data-aos-delay="500"
               >
-                <span className="block text-4xl font-bold text-gray-900">100%</span>
+                <span className="block text-4xl font-bold text-heading">100%</span>
                 <span className="block text-gray-600">Quality Assurance</span>
               </div>
             </div>

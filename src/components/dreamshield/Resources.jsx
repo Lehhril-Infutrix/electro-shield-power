@@ -28,7 +28,7 @@ const Resources = () => {
             <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
               Resources & General Info
             </h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h3 className="text-3xl md:text-5xl font-bold text-heading mb-4 leading-tight">
               Everything You Need to Know About Coatings
             </h3>
             <p className="text-gray-600">
@@ -46,7 +46,7 @@ const Resources = () => {
               data-aos-delay="100"
             >
               <Shield className="text-[#CC0001] w-10 h-10 mb-4" />
-              <h4 className="text-xl font-semibold mb-2">Protection</h4>
+              <h4 className="text-xl font-semibold mb-2 text-heading">Protection</h4>
               <p className="text-gray-600">
                 Coatings shield materials from corrosion, weather, and
                 mechanical damage — extending the lifespan of critical assets.
@@ -58,7 +58,7 @@ const Resources = () => {
               data-aos-delay="200"
             >
               <Sparkles className="text-[#CC0001] w-10 h-10 mb-4" />
-              <h4 className="text-xl font-semibold mb-2">Beauty</h4>
+              <h4 className="text-xl font-semibold mb-2 text-heading">Beauty</h4>
               <p className="text-gray-600">
                 Beyond protection, coatings provide color, gloss, and aesthetics,
                 enhancing the appearance of products and structures.
@@ -79,7 +79,7 @@ const Resources = () => {
             data-aos="fade-right"
             data-aos-duration="1000"
           >
-            <h4 className="text-4xl font-bold text-gray-900 mb-3 text-center md:text-start">
+            <h4 className="text-4xl font-bold text-heading mb-3 text-center md:text-start">
               RAL Colour Chart
             </h4>
             <p className="text-gray-600 leading-relaxed text-center md:text-start">
@@ -126,7 +126,7 @@ const Resources = () => {
               data-aos="fade-right"
               data-aos-duration="1000"
             >
-              <h4 className=" text-4xl font-bold text-gray-900 mb-3">
+              <h4 className=" text-4xl font-bold text-heading mb-3">
                 Paint Composition
               </h4>
               <p className="text-gray-600">
@@ -186,7 +186,7 @@ const Resources = () => {
               data-aos="fade-left"
               data-aos-duration="1000"
             >
-              <h4 className="text-4xl font-bold text-gray-900 mb-3">
+              <h4 className="text-4xl font-bold text-heading mb-3">
                 Testing & Trials
               </h4>
               <p className="text-gray-600">

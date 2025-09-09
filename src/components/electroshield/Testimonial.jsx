@@ -106,7 +106,7 @@ const Testimonial = () => {
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight pb-6 sm:pb-8 sm:text-start text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-heading leading-tight pb-6 sm:pb-8 sm:text-start text-center">
             What our <br /> <span className="text-[#CC0001]">Clients</span> say
           </h2>
         </div>
@@ -137,7 +137,7 @@ const Testimonial = () => {
                   </p>
                   {/* Footer */}
                   <div>
-                    <h5 className="font-semibold text-gray-900">{name}</h5>
+                    <h5 className="font-semibold text-heading">{name}</h5>
                     <p className="text-xs sm:text-sm text-gray-500">{location}</p>
                   </div>
                 </div>
