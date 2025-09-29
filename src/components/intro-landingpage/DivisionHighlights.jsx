@@ -7,6 +7,24 @@ import { CheckCircle } from "lucide-react";
 import Button from "../UI/Button";
 
 const sections = [
+
+   {
+    name: "ElectroShield Power",
+    label: "ABOUT ELECTROSHIELD",
+    description:
+      "Providing precision-engineered transformer components that ensure safety, reliability, and efficiency. From circuit breakers to laminations, delivering solutions that power industries with innovation and trust.",
+    bullets: [
+      "Precision transformer components",
+      "Reliable & efficient solutions",
+      "Innovation-driven engineering",
+    ],
+    progressLabel: "Quality Assurance",
+    progress: 95,
+    image: "/images/division_img2.webp", // replace
+    href: "/electroshield",
+    reverse: true,
+    id: "electro-shield",
+  },
   {
     name: "DreamShield Coatings",
     label: "ABOUT DREAMSHIELD",
@@ -22,28 +40,14 @@ const sections = [
     image: "/images/division_img1.webp", // replace
     href: "/dreamshield",
     reverse: false,
+    id: "dream-shield",
   },
-  {
-    name: "ElectroShield Power",
-    label: "ABOUT ELECTROSHIELD",
-    description:
-      "Providing precision-engineered transformer components that ensure safety, reliability, and efficiency. From circuit breakers to laminations, delivering solutions that power industries with innovation and trust.",
-    bullets: [
-      "Precision transformer components",
-      "Reliable & efficient solutions",
-      "Innovation-driven engineering",
-    ],
-    progressLabel: "Quality Assurance",
-    progress: 95,
-    image: "/images/division_img2.webp", // replace
-    href: "/electroshield",
-    reverse: true,
-  },
+ 
 ];
 
 const DivisionHighlights = () => {
   return (
-    <section className="w-full py-20 bg-white scroll-m-16" id="brand-highlights">
+    <section className="w-full py-20 bg-white scroll-m-16" id="divisions">
       <div className="container space-y-24">
         {sections.map((s, idx) => {
           const delay = 180 + idx * 140; // stagger sections
@@ -53,8 +57,9 @@ const DivisionHighlights = () => {
 
           return (
             <div
+              id={s.id}
               key={idx}
-              className={`flex flex-col md:flex-row gap-12 items-center ${s.reverse ? "md:flex-row-reverse" : ""
+              className={`flex flex-col md:flex-row gap-12 items-center scroll-m-28 ${s.reverse ? "md:flex-row-reverse " : ""
                 }`}
             >
               {/* Image */}

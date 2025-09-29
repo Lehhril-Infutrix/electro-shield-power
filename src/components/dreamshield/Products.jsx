@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect, useState, useRef } from "react";
 
 const products = [
   {
@@ -47,319 +46,73 @@ const products = [
 ];
 
 export default function Products() {
-  const [hoveredIdx, setHoveredIdx] = useState(null); // card/panel hover
-  const [pinnedIdx, setPinnedIdx] = useState(null); // pinned by click (desktop) or persistent
-  const [isMobileView, setIsMobileView] = useState(false);
-  const activeIdx = pinnedIdx ?? hoveredIdx;
+  const [openIdx, setOpenIdx] = useState(null);
+  const closeBtnRef = useRef(null);
 
-  const cardRefs = useRef([]);
-  const panelRef = useRef(null);
-  const [panelStyle, setPanelStyle] = useState({ left: 0, top: 0, placement: "right" });
-  const PANEL_W = 320;
-
-  const setCardRef = (el, i) => (cardRefs.current[i] = el);
-
-  // detect if device supports hover (desktop) — fallback to width check
+  // lock body scroll when modal open
   useEffect(() => {
-    function update() {
-      // prefer feature-detection
-      const canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
-      const small = window.innerWidth < 768;
-      setIsMobileView(!canHover || small);
-    }
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  // compute floating panel position for desktop
-  useLayoutEffect(() => {
-    if (activeIdx == null || isMobileView) return;
-    const card = cardRefs.current[activeIdx];
-    if (!card) return;
-
-    const cardRect = card.getBoundingClientRect();
-    const viewportW = document.documentElement.clientWidth;
-    const viewportH = document.documentElement.clientHeight;
-    const scrollY = window.scrollY || window.pageYOffset;
-
-    // overlap a bit so cursor doesn't fall in the void
-    let left = cardRect.right - 12 + window.scrollX;
-    let placement = "right";
-
-    // if not enough space to right, place left
-    if (left + PANEL_W > window.scrollX + viewportW - 8) {
-      left = cardRect.left - PANEL_W + 12 + window.scrollX;
-      placement = "left";
-    }
-
-    let top = cardRect.top + scrollY;
-    const panelH = panelRef.current ? panelRef.current.offsetHeight : 200;
-    const maxTop = window.scrollY + viewportH - panelH - 8;
-    top = Math.max(window.scrollY + 8, Math.min(top, maxTop));
-
-    setPanelStyle({ left, top, placement });
-  }, [activeIdx, isMobileView]);
-
-  // close pinned panel when clicking outside or pressing ESC (covers mobile bottom sheet closing as well)
-  useEffect(() => {
-    function onDocClick(e) {
-      // if nothing pinned and not mobile, ignore
-      if (pinnedIdx == null) return;
-      const panelEl = panelRef.current;
-      const clickedInsidePanel = panelEl && panelEl.contains(e.target);
-      const clickedInsideCard =
-        cardRefs.current[pinnedIdx] && cardRefs.current[pinnedIdx].contains(e.target);
-      if (!clickedInsidePanel && !clickedInsideCard) setPinnedIdx(null);
-    }
-    function onKey(e) {
-      if (e.key === "Escape") setPinnedIdx(null);
-    }
-    document.addEventListener("pointerdown", onDocClick);
-    document.addEventListener("keydown", onKey);
+    if (openIdx == null) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("pointerdown", onDocClick);
-      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
     };
-  }, [pinnedIdx]);
+  }, [openIdx]);
 
-  // desktop portal
-  const desktopPortal =
-    activeIdx != null && !isMobileView && typeof document !== "undefined"
-      ? ReactDOM.createPortal(
-          <div
-            ref={panelRef}
-            style={{
-              position: "absolute",
-              left: panelStyle.left,
-              top: panelStyle.top,
-              width: PANEL_W,
-              zIndex: 9999,
-            }}
-            onPointerEnter={() => setHoveredIdx(activeIdx)}
-            onPointerLeave={() => {
-              if (pinnedIdx == null) setHoveredIdx(null);
-            }}
-          >
-            {/* little connector arrow */}
-            <div
-              style={{
-                position: "absolute",
-                top: -8,
-                left: panelStyle.placement === "right" ? 20 : undefined,
-                right: panelStyle.placement === "left" ? 20 : undefined,
-                width: 16,
-                height: 16,
-                transform: "rotate(45deg)",
-                background: "white",
-                borderLeft: "1px solid rgba(226,232,240,1)",
-                borderTop: "1px solid rgba(226,232,240,1)",
-                zIndex: 10000,
-                filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.03))",
-              }}
-            />
-
-            <div
-              className="rounded-lg bg-white/95 border border-slate-200 shadow-xl p-4 backdrop-blur-sm"
-              onClick={(e) => e.stopPropagation()}
-              role="dialog"
-              aria-label={`${products[activeIdx].title} sub-products`}
-            >
-              {/* Header */}
-              <div className="flex items-start gap-3 mb-3">
-                <img
-                  src={products[activeIdx].image}
-                  alt={products[activeIdx].title}
-                  className="w-14 h-14 rounded-md object-cover flex-shrink-0 shadow-sm"
-                />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="text-sm font-semibold text-slate-900 truncate">
-                      {products[activeIdx].title}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => setPinnedIdx((cur) => (cur === activeIdx ? null : activeIdx))}
-                        className={`text-xs px-2 py-1 rounded-md border ${
-                          pinnedIdx === activeIdx
-                            ? "bg-[#CC0001] text-white border-[#CC0001]"
-                            : "bg-white text-slate-700 border-slate-200"
-                        } shadow-sm`}
-                      >
-                        {pinnedIdx === activeIdx ? "Pinned" : "Pin"}
-                      </button>
-
-                      <button
-                        onClick={() => setPinnedIdx(null)}
-                        aria-label="Close panel"
-                        className="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-100 transition"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414L11.414 10l2.293 2.293a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 10 6.293 7.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="text-xs text-slate-500 mt-1 line-clamp-2">
-                    {products[activeIdx].short_desc || ""}
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-px bg-slate-100 my-3" />
-
-              {/* items */}
-              <div className="grid grid-cols-1 gap-2">
-                {products[activeIdx].subProducts.map((sp, i) => (
-                  <button
-                    key={i}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      console.log("clicked subproduct", sp.name || sp);
-                    }}
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-slate-50 transition-all duration-150 text-left focus:outline-none"
-                  >
-                    <div className="w-12 h-12 rounded-md overflow-hidden flex-shrink-0 bg-slate-50 border border-slate-100">
-                      <img src={sp.thumb || products[activeIdx].image} alt={sp.name || sp} className="w-full h-full object-cover" />
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium text-slate-900 truncate">{sp.name || sp}</div>
-                    </div>
-
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414L13.414 10l-4.707 4.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg> */}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>,
-          document.body
-        )
-      : null;
-
-  // mobile bottom sheet (no portal) — simple slide-up
-  const mobileSheet =
-    activeIdx != null && isMobileView ? (
-      <div
-        ref={panelRef}
-        aria-hidden={activeIdx == null}
-        className="fixed inset-x-0 bottom-0 z-50"
-        onClick={(e) => {
-          // clicking backdrop closes if not on content
-          if (e.target === e.currentTarget && pinnedIdx == null) setHoveredIdx(null);
-        }}
-      >
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" />
-
-        <div
-          className="relative mx-auto max-w-3xl"
-          style={{
-            transform: "translateY(0)",
-            transition: "transform 220ms ease",
-          }}
-        >
-          <div className="rounded-t-xl bg-white border border-slate-100 shadow-xl p-4 max-h-[70vh] overflow-auto">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-3">
-                <img src={products[activeIdx].image} alt="" className="w-12 h-12 rounded-md object-cover" />
-                <div>
-                  <div className="text-sm font-semibold text-slate-900">{products[activeIdx].title}</div>
-                  <div className="text-xs text-slate-500">{products[activeIdx].short_desc}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {/* <button
-                  onClick={() => setPinnedIdx((cur) => (cur === activeIdx ? null : activeIdx))}
-                  className={`text-xs px-2 py-1 rounded-md border ${pinnedIdx === activeIdx ? "bg-[#CC0001] text-white border-[#CC0001]" : "bg-white text-slate-700 border-slate-200"}`}
-                >
-                  {pinnedIdx === activeIdx ? "Pinned" : "Pin"}
-                </button> */}
-
-                <button onClick={() => setHoveredIdx(null)} className="p-2 rounded-md text-slate-600 hover:bg-slate-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414L11.414 10l2.293 2.293a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 10 6.293 7.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {products[activeIdx].subProducts.map((sp, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    console.log("mobile clicked", sp.name || sp);
-                  }}
-                  className="flex items-center gap-3 p-3 rounded-md hover:bg-slate-50 w-full text-left"
-                >
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#CC0001]" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414L13.414 10l-4.707 4.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg> */}
-
-                  <div className="w-12 h-12 rounded-md overflow-hidden bg-slate-50 border border-slate-100">
-                    <img src={sp.thumb || products[activeIdx].image} alt={sp.name || sp} className="w-full h-full object-cover" />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-slate-900">{sp.name || sp}</div>
-                  </div>
-
-                  
-                </button>
-              ))}
-            </div>
-
-            {/* <div className="mt-4 text-center text-xs text-slate-500">Tap outside or press close to dismiss</div> */}
-          </div>
-        </div>
-      </div>
-    ) : null;
+  // esc to close, focus the close button on open
+  useEffect(() => {
+    if (openIdx == null) return;
+    const onKey = (e) => e.key === "Escape" && setOpenIdx(null);
+    window.addEventListener("keydown", onKey);
+    const t = setTimeout(() => closeBtnRef.current?.focus(), 0);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      clearTimeout(t);
+    };
+  }, [openIdx]);
 
   return (
     <section className="py-6 sm:py-10 md:py-20 bg-white" id="products">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">Our Products</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">Performance Backed by Science</h3>
-          <p className="text-gray-600">Electroshield Power Industries offers a wide range of coatings, primers, thinners, and adhesives.</p>
+          <h2 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
+            Our Products
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">
+            Performance Backed by Science
+          </h3>
+          <p className="text-gray-600">
+            ElectroShield Power Industries offers a focused range of coatings, primers,
+            thinners, and adhesives developed through R&amp;D and proven testing.
+          </p>
         </div>
 
+        {/* product cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((p, idx) => (
             <article
               key={idx}
-              ref={(el) => setCardRef(el, idx)}
-              onPointerEnter={() => {
-                if (!isMobileView) setHoveredIdx(idx);
-              }}
-              onPointerLeave={() => {
-                if (!isMobileView && pinnedIdx == null) setHoveredIdx((cur) => (cur === idx ? null : cur));
-              }}
               className="group relative rounded-xl bg-white border border-slate-100 shadow-sm transition-transform duration-200 hover:-translate-y-1"
             >
               <button
                 type="button"
                 className="w-full text-left"
-                onClick={() => {
-                  // desktop: toggle pin; mobile: open/close bottom sheet
-                  if (isMobileView) {
-                    setHoveredIdx((cur) => (cur === idx ? null : idx));
-                  } else {
-                    setPinnedIdx((cur) => (cur === idx ? null : idx));
-                  }
-                }}
-                aria-expanded={activeIdx === idx}
+                onClick={() => setOpenIdx(idx)}
+                aria-haspopup="dialog"
+                aria-expanded={openIdx === idx}
+                aria-controls={`product-modal-${idx}`}
               >
                 <div className="w-full h-44 md:h-64 overflow-hidden rounded-t-xl">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" />
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-4 md:p-6">
-                  <h4 className="text-lg md:text-xl font-semibold text-heading mb-1">{p.title}</h4>
+                  <h4 className="text-lg md:text-xl font-semibold text-heading mb-1">
+                    {p.title}
+                  </h4>
                   <p className="text-sm text-gray-600">{p.short_desc}</p>
                 </div>
               </button>
@@ -368,11 +121,88 @@ export default function Products() {
         </div>
       </div>
 
-      {/* desktop floating panel */}
-      {desktopPortal}
+      {/* modal */}
+      {openIdx != null && (
+        <div
+          id={`product-modal-${openIdx}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${products[openIdx].title} sub-products`}
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          {/* backdrop */}
+          <div
+            className="absolute inset-0 bg-black/45 backdrop-blur-sm"
+            onClick={() => setOpenIdx(null)}
+          />
 
-      {/* mobile bottom sheet */}
-      {mobileSheet}
+          {/* dialog */}
+          <div className="relative z-[60] bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-4">
+            {/* header */}
+            <div className="sticky top-0 bg-white rounded-t-2xl p-5 border-b flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img
+                  src={products[openIdx].image}
+                  alt={products[openIdx].title}
+                  className="w-16 h-16 rounded-md object-cover"
+                />
+                <div>
+                  <div className="text-sm md:text-lg font-semibold text-slate-900">
+                    {products[openIdx].title}
+                  </div>
+                  <div className="text-sm md:text-base text-slate-500">
+                    {products[openIdx].short_desc}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                ref={closeBtnRef}
+                onClick={() => setOpenIdx(null)}
+                className="p-2 rounded-full text-slate-600 hover:bg-slate-100 bg-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300 h-8 w-8 flex items-center justify-center"
+                aria-label="Close"
+                title="Close"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* body: fixed height, scroll inside */}
+            <div className="px-5 pb-5 overflow-y-auto" style={{ maxHeight: "78vh" }}>
+              {/* sub-products grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-5">
+                {products[openIdx].subProducts.map((sp, i) => (
+                  <button
+                    key={i}
+                    onClick={() => console.log("Clicked:", sp.name)}
+                    className="flex items-center gap-4 p-3 lg:p-4 rounded-xl border border-slate-200 hover:border-[#CC0001] hover:bg-slate-50 transition"
+                  >
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden bg-slate-50 border border-slate-100 flex-shrink-0">
+                      <img
+                        src={sp.thumb || products[openIdx].image}
+                        alt={sp.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-base lg:text-lg font-medium text-slate-900">
+                        {sp.name}
+                      </div>
+                      {/* placeholder for a tiny descriptor if you add one later */}
+                      {/* <div className="text-xs text-slate-500">High adhesion</div> */}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* helpful note / CTA */}
+              <div className="mt-6 text-center text-base text-slate-700">
+                Need a client-specific formulation? We do custom R&amp;D and testing.
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

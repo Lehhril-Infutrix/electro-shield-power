@@ -1,15 +1,36 @@
 "use client";
 
 import React from "react";
-import { Globe2, Award, Users, Calendar } from "lucide-react";
+import { Leaf, Award, Users, Calendar, ShieldCheck } from "lucide-react";
 
 const stats = [
-  { icon: <Calendar className="h-8 w-8 text-red-600" />, value: "Several", label: "Years of Experience" },
-  { icon: <Globe2 className="h-8 w-8 text-red-600" />, value: "10+", label: "Countries Served" },
-  { icon: <Award className="h-8 w-8 text-red-600" />, value: "ISO", label: "9001 Certified" },
-  { icon: <Users className="h-8 w-8 text-red-600" />, value: "500+", label: "Skilled Professionals" },
-  { icon: <Award className="h-8 w-8 text-red-600" />, value: "100%", label: "Quality Commitment" },
+  { 
+    icon: <Calendar className="h-8 w-8 text-red-600" />, 
+    value: "Several", 
+    label: "Years of Experience" 
+  },
+  { 
+    icon: <Leaf className="h-8 w-8 text-red-600" />, 
+    value: "Eco", 
+    label: "Environmentally Responsible" 
+  },
+  { 
+    icon: <ShieldCheck className="h-8 w-8 text-red-600" />, 
+    value: "Govt.", 
+    label: "Approved Manufacturer" 
+  },
+  { 
+    icon: <Award className="h-8 w-8 text-red-600" />, 
+    value: "ISO", 
+    label: "9001 Certified" 
+  },
+  { 
+    icon: <Users className="h-8 w-8 text-red-600" />, 
+    value: "500+", 
+    label: "Skilled Professionals" 
+  },
 ];
+
 
 const AboutParent = () => {
   return (

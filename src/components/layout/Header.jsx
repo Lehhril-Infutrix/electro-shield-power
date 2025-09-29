@@ -38,7 +38,6 @@ const Header = () => {
       { name: "R&D", href: "#r&d" },
       { name: "Products", href: "#products" },
       { name: "Resources", href: "#resources" },
-      { name: "Careers", href: "#careers" },
       { name: "Contact Us", href: "#contact" },
     ];
     cta = { name: "Explore Products", href: "#products" };
@@ -66,7 +65,7 @@ const Header = () => {
           </div>
 
           {/* Center: Nav */}
-          <nav className="flex-1 flex justify-center space-x-8">
+          <nav className="flex-1 flex justify-end space-x-8">
             {navItems.map((item, index) => (
               <Link
                 key={index}
@@ -79,13 +78,13 @@ const Header = () => {
           </nav>
 
           {/* Right: CTA Button */}
-          <div className="flex-1 flex justify-end">
+          {/* <div className="flex-1 flex justify-end">
             {cta && (
               <Link href={cta.href}>
                 <Button>{cta.name}</Button>
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Header */}
@@ -123,11 +122,11 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            {cta && (
+            {/* {cta && (
               <Button className="w-fit" onClick={() => setIsOpen(false)}>
                 <Link href={cta.href}>{cta.name}</Link>
               </Button>
-            )}
+            )} */}
           </div>
         )}
       </div>

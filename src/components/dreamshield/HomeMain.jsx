@@ -33,7 +33,7 @@ const HomeMain = () => {
       <RND />
       <Products />
       <Resources />
-      <Career />
+      {/* <Career /> */}
       <Contact />
     </>
   )

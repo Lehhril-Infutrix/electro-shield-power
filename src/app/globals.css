@@ -135,7 +135,7 @@ html{
 
 /* Div cards */
 .d-card-content {
-    bottom: -90px;
+    bottom: -80px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -150,7 +150,7 @@ html{
 }
 
 .d-card > a:hover .d-card-content {
-    bottom: 40px;
+    bottom: 20px;
 }
 .foot-heading::before
  {

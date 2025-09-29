@@ -31,10 +31,10 @@ const HomeMain = () => {
     <>
       {/* <Banner /> */}
       <HeroBanner />
-      <DivCards />
-      <AboutParent />
       <DivisionHighlights />
-      <LandingCTA />
+      <AboutParent />
+      <DivCards />
+      {/* <LandingCTA /> */}
       <Contact />
     </>
   )

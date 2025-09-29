@@ -18,8 +18,8 @@ const About = () => {
             data-aos-duration="1200"
           >
             <Image
-              src="/images/About_img.webp"
-              alt="Electroshield facility"
+              src="/images/About_img 1.png"
+              alt="ElectroShield facility"
               width={300}
               height={300}
               className="rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 w-full h-auto"
@@ -29,7 +29,7 @@ const About = () => {
           {/* Right Side Content */}
           <div className="col-span-4 md:col-span-2">
             <h3 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
-              About Electroshield
+              About ElectroShield
             </h3>
             <h2 className="text-3xl lg:text-5xl font-bold text-heading mb-6 leading-tight">
               Innovation, Precision & Reliability in Transformer Components
@@ -39,11 +39,11 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Electroshield Power Industries is promoted by technocrats with vast
+              ElectroShield Power Industries is promoted by technocrats with vast
               experience in electrical engineering, both in manufacturing and
-              operations. We cater to the needs of the transformer industry with key
-              components such as internal circuit breakers, CNC-cut CRGO laminations,
-              amorphous loops, DPC conductors, transformer tanks, and radiators.
+              operations. We cater to the needs of the transformer industry with
+              specialized components such as internal circuit breakers and
+              transformer fittings (LV Push and HV Push).
             </p>
 
             {/* Quick stats */}
@@ -103,8 +103,8 @@ const About = () => {
             {activeTab === "vision" && (
               <p className="text-gray-600 mb-8">
                 Our vision is to be a global leader in transformer component
-                manufacturing by driving innovation through advanced R&D and precision
-                engineering. We strive to provide sustainable, reliable, and efficient
+                manufacturing by driving innovation through precision engineering.
+                We strive to provide sustainable, reliable, and efficient
                 solutions that strengthen modern power distribution systems.
               </p>
             )}

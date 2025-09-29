@@ -25,21 +25,22 @@ const divisions = [
 
 const DivCards = () => {
   return (
-    <section className="w-full bg-slate-50 py-10 scroll-m-16" id="divisions">
+    <section className="w-full bg-slate-50 py-10 md:py-16 scroll-m-16" >
       <div className="container mx-auto px-6">
         {/* Section Heading */}
-        {/* <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-12">
           <h3 className="text-lg font-semibold text-red-600">
-            Our Divisions
+            Explore Us
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
-            Explore Our Specialized Solutions
+            Discover Our Divisions
           </h2>
           <p className="mt-3 text-slate-600">
-            From advanced coatings to reliable transformer components, our
-            divisions are driven by innovation, quality, and trust.
+            We build industry-grade coatings and reliable power components backed by decades of
+            R&D and manufacturing excellence. Explore our divisions to find solutions built for
+            performance, safety, and sustainability.
           </p>
-        </div> */}
+        </div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8 d-card">
@@ -72,7 +73,7 @@ const DivCards = () => {
                 <span
                   className="text-white font-semibold inline-flex items-center gap-1 border-b-2 border-transparent group-hover:border-white transition-border"
                 >
-                  Learn More <ArrowRight className="w-4 h-4" />
+                  {/* Learn More <ArrowRight className="w-4 h-4" /> */}
                 </span>
               </div>
             </Link>

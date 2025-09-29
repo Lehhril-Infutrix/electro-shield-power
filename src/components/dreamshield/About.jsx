@@ -20,7 +20,7 @@ const About = () => {
             data-aos-duration="1200"
           >
             <Image
-              src="/images/About_img3.webp"
+              src="/images/dream_about1.png"
               alt="Dreamshield production facility"
               width={300}
               height={300}
