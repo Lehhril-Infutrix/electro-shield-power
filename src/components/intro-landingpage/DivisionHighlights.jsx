@@ -26,7 +26,7 @@ const sections = [
     id: "electro-shield",
   },
   {
-    name: "DreamShield Coatings",
+    name: "DreamShield",
     label: "ABOUT DREAMSHIELD",
     description:
       "Delivering advanced protective and decorative finishes trusted for durability, aesthetics, and long-term performance. Combining beauty with functionality, meeting the highest global standards.",

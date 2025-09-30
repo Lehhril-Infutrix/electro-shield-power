@@ -9,7 +9,7 @@ const footerData = {
     company: {
       name: "ElectroShield Group",
       desc:
-        "With several years of industrial manufacturing, ElectroShield delivers reliable power components first — and through our DreamShield coatings division, advanced R&D drives long-lasting protection systems.",
+        "With several years of industrial manufacturing, ElectroShield delivers reliable power components first — and through our DreamShield division, advanced R&D drives long-lasting protection systems.",
     },
     links: [
       { label: "Home", href: "/" },
@@ -19,7 +19,7 @@ const footerData = {
     ],
     products: [
       { label: "ElectroShield Power", href: "/electroshield" },
-      { label: "DreamShield Coatings", href: "/dreamshield" },
+      { label: "DreamShield", href: "/dreamshield" },
     ],
   },
 

@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 
 const divisions = [
   {
-    name: "DreamShield Coatings",
+    name: "DreamShield",
     description:
       "Delivering advanced protective and decorative finishes trusted for durability, aesthetics, and performance across industries.",
     image: "/images/div_img1.webp", // replace with real asset
     href: "/dreamshield",
   },
   {
-    name: "ElectroShield Power",
+    name: "ElectroShield",
     description:
       "Providing precision-engineered transformer components designed for safety, reliability, and long-term power efficiency.",
     image: "/images/div_img5.webp", // replace with real asset

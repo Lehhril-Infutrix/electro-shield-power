@@ -33,7 +33,7 @@ export default function LandingCTA() {
           <Link
             href="/dreamshield"
             className="inline-flex items-center gap-3 bg-white text-[#CC0001] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition"
-            aria-label="Explore DreamShield Coatings"
+            aria-label="Explore DreamShield"
           >
             Explore DreamShield
             <ArrowRight className="w-4 h-4" />
@@ -42,7 +42,7 @@ export default function LandingCTA() {
           <Link
             href="/electroshield"
             className="inline-flex items-center gap-3 bg-white text-[#CC0001] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition"
-            aria-label="Explore ElectroShield Power"
+            aria-label="Explore ElectroShield"
           >
             Explore ElectroShield
             <ArrowRight className="w-4 h-4" />
