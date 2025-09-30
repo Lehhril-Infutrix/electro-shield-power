@@ -155,7 +155,7 @@ export default function Footer() {
               Our Products
             </h3>
             <ul className="space-y-2 text-gray-400">
-              <h4 class="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
+              <h4 className="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
                 Electroshield
               </h4>
               <li>
@@ -168,7 +168,7 @@ export default function Footer() {
                   Internal Circuit Breaker
                 </Link>
               </li>
-              <h4 class="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
+              <h4 className="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
                 Dreamshield
               </h4>
               <li>
