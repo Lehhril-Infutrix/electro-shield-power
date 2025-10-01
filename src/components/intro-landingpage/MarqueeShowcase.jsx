@@ -74,7 +74,7 @@ export default function MarqueeShowcase() {
             <MaskedMarquee logos={logosTop} settings={leftMarquee} maskBase="#ffffff" />
           </LightCard>
 
-          <TitleCard badge={"INDUSTRIES"} title={titleTopRight} />
+          <TitleCard badge={"Our Clients"} title={titleTopRight} />
         </div>
 
         {/* Row 2 */}
