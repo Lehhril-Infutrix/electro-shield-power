@@ -8,6 +8,7 @@ import Contact from './Contact'
 import AOS from 'aos';
 import LandingCTA from './LandingCTA'
 import HeroBanner from './HeroBanner'
+import MarqueeShowcase from './MarqueeShowcase'
 
 const HomeMain = () => {
 
@@ -31,9 +32,10 @@ const HomeMain = () => {
     <>
       {/* <Banner /> */}
       <HeroBanner />
+      <DivCards />
       <DivisionHighlights />
       <AboutParent />
-      <DivCards />
+      <MarqueeShowcase />
       {/* <LandingCTA /> */}
       <Contact />
     </>

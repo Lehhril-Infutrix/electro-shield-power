@@ -34,36 +34,45 @@ const products = [
   },
   {
     image: "/images/bushing.jpg",
-    title: "Transformer Fittings",
-    short_desc: "Durable LV and HV bushings for distribution transformers.",
+    title: "Transformer Accessories",
+    short_desc: "High-quality accessories that improve safety and longevity.",
     long_desc:
-      "ElectroShield supplies precision transformer fittings that ensure safe current flow in and out of distribution transformers. Our LV and HV bushings are built for long service life, reliable insulation, and easy installation.",
+      "ElectroShield supplies precision transformer accessories designed to ensure reliability, durability, and ease of assembly. Our range includes fittings, clamps, and core bolt/birods — all manufactured to meet strict industry standards for safety and performance.",
     variants: [
       {
-        name: "LV Bushings (Low Voltage)",
+        name: "Fittings",
         description:
-          "Designed for the secondary side of distribution transformers, LV bushings carry high current at low voltage. Manufactured with brass conductors and porcelain or epoxy insulation, they provide dependable connections for outgoing supply lines.",
+          "Essential parts like LV and HV bushings that maintain safe current flow in and out of transformers while providing long service life and insulation.",
         bullets: [
-          "Suitable up to 1.1 kV service voltage",
-          "High mechanical strength for heavy current loads",
-          "Available in standard sizes: 12 mm, 20 mm, and 30 mm",
-          "Brass material ensures conductivity and corrosion resistance",
+          "LV bushings suitable up to 1.1 kV service voltage",
+          "HV bushings available for 11 kV, 22 kV, and 33 kV systems",
+          "Manufactured with brass conductors and durable insulation",
         ],
       },
       {
-        name: "HV Bushings (High Voltage)",
+        name: "Clamps",
         description:
-          "Engineered for the primary side of transformers, HV bushings handle higher voltages with reliable insulation. Built with brass conductors and robust insulating bodies, they prevent flashovers and withstand outdoor conditions.",
+          "Heavy-duty clamps that secure components inside the transformer assembly, ensuring structural integrity and reducing vibration during operation.",
         bullets: [
-          "Available for 11 kV, 22 kV, and 33 kV distribution systems",
-          "Oil-immersed and resin/porcelain insulated options",
-          "Standard fitting sizes: 12 mm, 20 mm, and 30 mm",
-          "Brass components provide durability and consistent electrical performance",
+          "High mechanical strength for long-term stability",
+          "Corrosion-resistant coatings for outdoor and indoor use",
+          "Custom sizes available for distribution and power transformers",
+        ],
+      },
+      {
+        name: "Core Bolt / Birods",
+        description:
+          "Bolts and birods designed to hold transformer cores firmly in place. Built from high-tensile steel for mechanical stability and electrical reliability.",
+        bullets: [
+          "Provides core clamping to prevent shifting under load",
+          "Zinc-coated or epoxy-coated options for rust prevention",
+          "Engineered for precise fit and easy installation",
         ],
       },
     ],
   },
 ];
+
 
 
 
@@ -106,7 +115,7 @@ const Products = () => {
             Engineered for Reliability
           </h3>
           <p className="text-gray-600">
-            ElectroShield Power specializes in internal circuit breakers and transformer fittings,
+            ElectroShield specializes in oil immersed internal circuit breakers and transformer fittings,
             built for long service life and consistent performance.
           </p>
         </div>

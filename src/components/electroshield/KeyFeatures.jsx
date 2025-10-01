@@ -18,7 +18,7 @@ const features = [
     icon: "key_icon3",
     title: "Advanced Infrastructure",
     description:
-      "Equipped with precision tools and robust facilities to deliver consistent internal circuit breakers and transformer fittings.",
+      "Equipped with precision tools and robust facilities to deliver consistent oil immersed internal circuit breakers and transformer fittings.",
   },
   {
     icon: "key_icon4",
@@ -38,7 +38,7 @@ const KeyFeatures = () => {
             Why Choose Us
           </h2>
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-heading mb-3 leading-tight">
-            Key Strengths of ElectroShield Power
+            Key Strengths of ElectroShield Industries
           </h3>
           <p className="text-gray-600 text-sm sm:text-base">
             With focused expertise, advanced infrastructure, and a

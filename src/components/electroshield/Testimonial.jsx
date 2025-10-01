@@ -11,7 +11,7 @@ const testimonials = [
   {
     image: "/images/Testimonial_avatar.png",
     quote:
-      "Electroshield Power Industries delivered exceptional transformer components that exceeded our expectations in quality and reliability. Their internal circuit breakers and CNC-cut laminations were flawless.",
+      "Electroshield Industries delivered exceptional transformer components that exceeded our expectations in quality and reliability. Their oil immersed internal circuit breakers and CNC-cut laminations were flawless.",
     name: "Ravi Sharma",
     location: "Mumbai",
   },

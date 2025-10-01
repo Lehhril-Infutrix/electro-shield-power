@@ -92,7 +92,7 @@ export default function BannerWithSlideshow() {
         <div className="max-w-4xl md:mx-0">
           {/* micro-tag */}
           <span className="bg-[#CC0001] text-white px-3 py-2 rounded text-xs sm:text-sm font-medium uppercase tracking-wide inline-block">
-            ElectroShield Power Industries
+            ElectroShield Industries
           </span>
 
           {/* main heading */}

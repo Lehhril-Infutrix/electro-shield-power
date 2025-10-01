@@ -9,10 +9,10 @@ import Button from "../UI/Button";
 const sections = [
 
    {
-    name: "ElectroShield Power",
+    name: "ElectroShield",
     label: "ABOUT ELECTROSHIELD",
     description:
-      "Providing precision-engineered transformer components that ensure safety, reliability, and efficiency. From circuit breakers to laminations, delivering solutions that power industries with innovation and trust.",
+      "Providing precision-engineered transformer components that ensure safety, reliability, and efficiency. From oil immersed circuit breakers to tranformer fittings, delivering solutions that power industries with innovation and trust.",
     bullets: [
       "Precision transformer components",
       "Reliable & efficient solutions",

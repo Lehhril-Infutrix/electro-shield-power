@@ -74,7 +74,7 @@ const Contact = () => {
           <h3 className="text-2xl font-semibold text-heading">Contact Info</h3>
           {[
             { icon: Phone, label: "Call us", content: "+91 98 759 83535", href: "tel:+919875983535" },
-            { icon: MapPin, label: "Find us", content: "C-12, Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
+            { icon: MapPin, label: "Find us", content: "C-26(P), Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
             { icon: Mail, label: "Email", content: "info@electroshieldpower.com", href: "mailto:info@electroshieldpower.com" },
           ].map((item, idx) => {
             const Icon = item.icon;
@@ -173,7 +173,7 @@ const Contact = () => {
 
             <div>
               <label htmlFor="website" className="block text-sm font-medium text-gray-700">
-                Your website
+                Your company
               </label>
               <input
                 id="website"

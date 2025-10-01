@@ -39,10 +39,10 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              ElectroShield Power Industries is promoted by technocrats with vast
+              ElectroShield Industries is promoted by technocrats with vast
               experience in electrical engineering, both in manufacturing and
               operations. We cater to the needs of the transformer industry with
-              specialized components such as internal circuit breakers and
+              specialized components such as oil immersed internal circuit breakers and
               transformer fittings (LV Push and HV Push).
             </p>
 

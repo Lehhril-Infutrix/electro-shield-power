@@ -82,7 +82,7 @@ export default function Products() {
             Performance Backed by Science
           </h3>
           <p className="text-gray-600">
-            ElectroShield Power Industries offers a focused range of coatings, primers,
+            ElectroShield Industries offers a focused range of coatings, primers,
             thinners, and adhesives developed through R&amp;D and proven testing.
           </p>
         </div>

@@ -67,15 +67,15 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-10 md:py-20 md:pt-0 bg-white scroll-m-24" aria-labelledby="contact-heading">
+    <section id="contact" className="py-10 md:py-20 md:pt-0 md:mt-16 mt:10 bg-white scroll-m-24" aria-labelledby="contact-heading">
       <div className="container grid md:grid-cols-2 gap-12">
         {/* LEFT: Info + small map */}
         <div className="space-y-4">
           <h3 className="text-2xl font-semibold text-heading">Contact Info</h3>
           {[
             { icon: Phone, label: "Call us", content: "+91 98 759 83535", href: "tel:+919875983535" },
-            { icon: MapPin, label: "Find us", content: "C-12, Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
-            { icon: Mail, label: "Email", content: "info@surfacepaints.com", href: "mailto:info@surfacepaints.com" },
+            { icon: MapPin, label: "Find us", content: "C-26(P), Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
+            { icon: Mail, label: "Email", content: "info@electroshield.com", href: "mailto:info@electroshield.com" },
           ].map((item, idx) => {
             const Icon = item.icon;
             const isLink = Boolean(item.href);
@@ -173,7 +173,7 @@ const Contact = () => {
 
             <div>
               <label htmlFor="website" className="block text-sm font-medium text-gray-700">
-                Your website
+                Your company
               </label>
               <input
                 id="website"

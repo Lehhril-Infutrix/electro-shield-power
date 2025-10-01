@@ -58,7 +58,7 @@ const Banner = () => {
 
           {/* Paragraph */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 pe-16">
-            DreamShield, the coatings division of ElectroShield Power
+            DreamShield, the coatings division of ElectroShield
             Industries, specializes in developing coatings, resins, and adhesives
             through dedicated research and rigorous testing. We deliver
             client-specific solutions that combine durability and quality with

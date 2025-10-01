@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("values");
-  const foundingYear = 1978;
-  const years = new Date().getFullYear() - foundingYear;
+  // const foundingYear = "1978";
+  // const years = new Date().getFullYear() - foundingYear;
 
   return (
     <section id="about" className="py-20 scroll-m-16 bg-[#fff]">
@@ -43,8 +43,9 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Electroshield Power Industries (Dreamshield Division), established in {foundingYear} and ISO 9001:2008 certified, has expanded from resin and adhesive manufacturing into a leader in coatings and industrial paints. We specialize in acrylic, epoxy, polyester, and alkyd-amino based coatings, serving industries with durability, performance, and innovation.
+              Dreamshield, ISO 9001:2015 certified, drives innovation through dedicated R&amp;D and customer-focused solutions. With expertise in acrylic, epoxy, polyester, and alkyd-amino based coatings, we deliver high-performance industrial paints designed to meet evolving requirements for durability, efficiency, and long-term protection.
             </p>
+
 
             {/* Quick stats */}
             <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-4 sm:space-y-0 mb-8">
@@ -73,11 +74,10 @@ const About = () => {
                 role="tab"
                 aria-selected={activeTab === "values"}
                 onClick={() => setActiveTab("values")}
-                className={`py-2 px-4 font-semibold cursor-pointer ${
-                  activeTab === "values"
+                className={`py-2 px-4 font-semibold cursor-pointer ${activeTab === "values"
                     ? "text-[#CC0001] border-b-2 border-[#CC0001]"
                     : "text-gray-500"
-                }`}
+                  }`}
               >
                 Our Values
               </button>
@@ -85,11 +85,10 @@ const About = () => {
                 role="tab"
                 aria-selected={activeTab === "quality"}
                 onClick={() => setActiveTab("quality")}
-                className={`py-2 px-4 font-semibold cursor-pointer ${
-                  activeTab === "quality"
+                className={`py-2 px-4 font-semibold cursor-pointer ${activeTab === "quality"
                     ? "text-[#CC0001] border-b-2 border-[#CC0001]"
                     : "text-gray-500"
-                }`}
+                  }`}
               >
                 Our Quality
               </button>

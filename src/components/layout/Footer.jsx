@@ -18,14 +18,14 @@ const footerData = {
       { label: "Contact", href: "#contact" },
     ],
     products: [
-      { label: "ElectroShield Power", href: "/electroshield" },
+      { label: "ElectroShield", href: "/electroshield" },
       { label: "DreamShield", href: "/dreamshield" },
     ],
   },
 
   "/electroshield": {
     company: {
-      name: "ElectroShield Power",
+      name: "ElectroShield",
       desc:
         "Reliable power components backed by quality and consistency — transformers, stabilizers, and precision assemblies trusted for performance and safety.",
     },
@@ -38,7 +38,7 @@ const footerData = {
       { label: "Contact", href: "#contact" },
     ],
     products: [
-      "Internal Circuit Breakers",
+      "Oil Immersed Internal Circuit Breakers",
       "Transformer Fittings"
     ],
   },
@@ -160,12 +160,12 @@ export default function Footer() {
               </h4>
               <li>
                 <Link href={"/electroshield/#products"} className="hover:text-white cursor-pointer">
-                  Tranformer Fittings
+                  Tranformer Accessories
                 </Link>
               </li>
               <li>
                 <Link href={"/electroshield/#products"} className="hover:text-white cursor-pointer">
-                  Internal Circuit Breaker
+                  Oil Immersed Internal Circuit Breaker
                 </Link>
               </li>
               <h4 className="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
@@ -203,10 +203,10 @@ export default function Footer() {
             <li className="flex items-start space-x-3">
               <Mail className="text-[#CC0001] w-5 h-5 mt-1" />
               <a
-                href="mailto:info@surfacepaints.com"
+                href="mailto:info@electroshield.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                info@surfacepaints.com
+                info@electroshield.com
               </a>
             </li>
             <li className="flex items-start space-x-3">
@@ -217,7 +217,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                C-12, Industrial Growth Center, <br />
+                C-26(P), Industrial Growth Center, <br />
                 Mansa Road, Bathinda, Punjab (151001)
               </a>
             </li>
