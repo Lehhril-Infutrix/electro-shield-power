@@ -54,13 +54,12 @@ export default function MarqueeShowcase() {
   ];
 
   const logosBottom = [
-    { src: "https://picsum.photos/seed/8/200/200", alt: "Logo 8" },
-    { src: "https://picsum.photos/seed/9/200/200", alt: "Logo 9" },
-    { src: "https://picsum.photos/seed/10/200/200", alt: "Logo 10" },
-    { src: "https://picsum.photos/seed/11/200/200", alt: "Logo 11" },
-    { src: "https://picsum.photos/seed/12/200/200", alt: "Logo 12" },
-    { src: "https://picsum.photos/seed/13/200/200", alt: "Logo 13" },
-    { src: "https://picsum.photos/seed/14/200/200", alt: "Logo 14" },
+    { src: "/images/gov1.png", alt: "Logo 8" },
+    { src: "/images/gov2.png", alt: "Logo 9" },
+    { src: "/images/gov3.png", alt: "Logo 10" },
+    { src: "/images/gov1.png", alt: "Logo 11" },
+    { src: "/images/gov2.png", alt: "Logo 12" },
+    { src: "/images/gov3.png", alt: "Logo 13" },
   ];
 
   const titleTopRight = "Powering Diverse Industries";
@@ -180,19 +179,20 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
 function LogoChip({ src, alt, eager = false }) {
   return (
     <div
-      className="h-20 md:h-24 flex items-center justify-center
-                 p-3 rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
+      className="h-32 w-32 flex items-center justify-center
+                 p-2 rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
                  hover:bg-[rgba(0,0,0,0.05)] transition"
     >
       <img
         src={src}
         alt={alt}
         loading={eager ? "eager" : "lazy"}
-        className="h-12 md:h-16 w-auto object-contain opacity-90 grayscale
+        className="max-h-full max-w-full object-contain opacity-90 grayscale
                    hover:opacity-100 hover:grayscale-0
                    transition-transform duration-200 hover:scale-[1.05]"
       />
     </div>
   );
 }
+
 
