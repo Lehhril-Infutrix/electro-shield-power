@@ -1,4 +1,3 @@
-// components/MarqueeShowcase.jsx
 "use client";
 
 import React from "react";
@@ -6,14 +5,6 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-/**
- * Light palette:
- * - Card: white (#fff)
- * - Page beige: #F6F0E8 (soft, matches your sections)
- * - Accent red: #cc0001
- * - Subtle border: rgba(0,0,0,0.08)
- */
 
 
 const baseSettings = {
@@ -44,8 +35,6 @@ export default function MarqueeShowcase() {
   const leftMarquee = { ...baseSettings, rtl: false };
   const rightMarquee = { ...baseSettings, rtl: true };
 
-  // Hardcoded data
-  // In your data:
   const logosTop = [
     { src: "/images/company1.png", alt: "Logo 1", title: "Mahashakti Energy" },
     { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
@@ -92,8 +81,6 @@ export default function MarqueeShowcase() {
     </section>
   );
 }
-
-/* ---------- UI atoms (light theme) ---------- */
 
 function LightCard({ children, className = "" }) {
   return (
