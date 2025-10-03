@@ -177,7 +177,7 @@ function LogoChip({ src, alt, eager = false, title }) {
         />
       </div>
       {title && (
-        <p className="text-center mt-1.5 sm:mt-2 text-xs sm:text-sm font-medium text-neutral-700 line-clamp-2">
+        <p className="text-center mt-1.5 sm:mt-2 text-[10px] sm:text-sm font-medium text-neutral-700 line-clamp-2">
           {title}
         </p>
       )}
