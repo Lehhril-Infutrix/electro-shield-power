@@ -75,6 +75,8 @@ export default function Footer() {
   const data = footerData[key];
   const isHome = key === "/";
 
+  const linkClass = "group flex items-center justify-start rounded-lg px-2 py-1.5  text-gray-400 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CC0001]/60 transition text-base gap-2"
+
   return (
     <footer className="bg-[#121212] text-white pt-12">
       <div className="container grid md:grid-cols-4 gap-10">
@@ -117,8 +119,9 @@ export default function Footer() {
               <li key={i}>
                 <Link
                   href={link.href}
-                  className="hover:text-white cursor-pointer"
+                  className={linkClass}
                 >
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/50 inline-block" />
                   {link.label}
                 </Link>
               </li>
@@ -139,7 +142,8 @@ export default function Footer() {
                   typeof product === "string" ? "#products" : product.href;
                 return (
                   <li key={i}>
-                    <Link href={href} className="hover:text-white cursor-pointer">
+                    <Link href={href} className={linkClass}>
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/50 inline-block" />
                       {label}
                     </Link>
                   </li>
@@ -151,37 +155,84 @@ export default function Footer() {
 
         {isHome &&
           <div>
-            <h3 className="text-lg font-semibold mb-3 foot-heading relative">
+            <h3 className="text-lg font-semibold mb-4 foot-heading relative text-white ">
               Our Products
             </h3>
-            <ul className="space-y-2 text-gray-400">
-              <h4 className="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
-                Electroshield
-              </h4>
-              <li>
-                <Link href={"/electroshield/#products"} className="hover:text-white cursor-pointer">
-                  Tranformer Accessories
-                </Link>
-              </li>
-              <li>
-                <Link href={"/electroshield/#products"} className="hover:text-white cursor-pointer">
-                  Oil Immersed Internal Circuit Breaker
-                </Link>
-              </li>
-              <h4 className="text-white text-sm font-semibold mb-2 border-b border-red-600 inline-block pb-1">
-                Dreamshield
-              </h4>
-              <li>
-                <Link href={"/dreamshield/#products"} className="hover:text-white cursor-pointer">
-                  Industrial Enamel Paint
-                </Link>
-              </li>
-              <li>
-                <Link href={"/dreamshield/#products"} className="hover:text-white cursor-pointer">
-                  Industrial Primer
-                </Link>
-              </li>
-            </ul>
+
+            <div className="">
+              {/* ElectroShield group */}
+              <div className="mb-5">
+                <h4 className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide uppercase text-white/90">
+                  <span className="rounded-full bg-white/10 px-2 py-1 text-white/80">
+                    ElectroShield
+                  </span>
+                  <span className="h-px w-8 bg-white/20" />
+                </h4>
+
+                <ul className="mt-3 space-y-2 text-base">
+                  <li>
+                    <Link
+                      href={"/electroshield/#products"}
+                      className="group flex items-center justify-between rounded-lg px-2 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CC0001]/60 transition text-base"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white/50" />
+                        Transformer Accessories
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={"/electroshield/#products"}
+                      className="group flex items-center justify-between rounded-lg px-2 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CC0001]/60 transition text-base"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white/50" />
+                        Oil Immersed Internal Circuit Breaker
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Divider */}
+              <div className="my-3 h-px w-full bg-white/10" />
+
+              {/* DreamShield group */}
+              <div>
+                <h4 className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide uppercase text-white/90">
+                  <span className="rounded-full bg-white/10 px-2 py-1 text-white/80">
+                    DreamShield
+                  </span>
+                  <span className="h-px w-8 bg-white/20" />
+                </h4>
+
+                <ul className="mt-3 space-y-2">
+                  <li>
+                    <Link
+                      href={"/dreamshield/#products"}
+                      className="group flex items-center justify-between rounded-lg px-2 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CC0001]/60 transition text-base"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white/50" />
+                        Industrial Enamel Paint
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={"/dreamshield/#products"}
+                      className="group flex items-center justify-between rounded-lg px-2 py-1.5  text-gray-400 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CC0001]/60 transition text-base"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white/50" />
+                        Industrial Primer
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         }
 
@@ -227,7 +278,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="mt-10 border-t border-gray-700 py-3 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} {data.company.name}. All Rights Reserved |
+        © {new Date().getFullYear()} {data.company.name}. All Rights Reserved <span className="sm:pl-2">|</span>
         <span className="block sm:inline sm:ml-2">
           Website Crafted by{" "}
           <a

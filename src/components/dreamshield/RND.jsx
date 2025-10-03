@@ -94,7 +94,7 @@ const RND = () => {
             </h4>
             <p className="text-[#7e7e7e]">
               Guaranteeing adherence to environmental regulations and global
-              safety standards like ISO and ASTM.
+              safety standards like ISO.
             </p>
           </div>
 

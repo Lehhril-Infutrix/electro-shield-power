@@ -41,7 +41,7 @@ const Banner = () => {
 
           {/* Paragraph */}
           <p
-            className="mt-4 text-sm sm:text-base md:text-lg text-white"
+            className="mt-4 text-sm sm:text-base md:text-xl text-white"
           >
             Electroshield Industries delivers advanced transformer components
             with innovation, precision, and reliability. From oil immersed circuit breakers to core

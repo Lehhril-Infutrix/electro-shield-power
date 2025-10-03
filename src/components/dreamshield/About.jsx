@@ -64,7 +64,7 @@ const About = () => {
                 data-aos-delay={500}
               >
                 <span className="block text-4xl font-bold text-heading">ISO</span>
-                <span className="block text-gray-600">9001:2008 Certified</span>
+                <span className="block text-gray-600">9001:2015 Certified</span>
               </div>
             </div>
 

@@ -18,6 +18,7 @@ const Header = () => {
     navItems = [
       { name: "Divisions", href: "#divisions" },
       { name: "About", href: "#about-parent" },
+      {name: "Our Clients", href: "#our-clients"},
       { name: "Contact", href: "#contact" },
     ];
     cta = { name: "Explore", href: "#brand-highlights" };
@@ -27,7 +28,6 @@ const Header = () => {
       { name: "About", href: "#about" },
       { name: "Features", href: "#features" },
       { name: "Products", href: "#products" },
-      { name: "Testimonials", href: "#testimonials" },
       { name: "Contact Us", href: "#contact" },
     ];
     cta = { name: "Explore Products", href: "#products" };

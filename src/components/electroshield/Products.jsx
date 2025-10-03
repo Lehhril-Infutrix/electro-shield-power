@@ -139,7 +139,7 @@ const Products = () => {
                 <h4 className="text-xl font-bold text-heading mb-2">
                   {product.title}
                 </h4>
-                <p className="mb-2">{product.short_desc}</p>
+                <p className="mb-2 max-w-[90%]">{product.short_desc}</p>
                 <button
                   onClick={() => setSelectedProduct(product)}
                   className="mt-2 bg-[#CC0001] cursor-pointer text-white font-medium px-4 py-2 rounded-lg hover:bg-[#CC000190] transition-colors"

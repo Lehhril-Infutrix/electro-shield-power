@@ -58,7 +58,7 @@ export default function MarqueeShowcase() {
   const titleBottomLeft = "Approved & Certified by Authorities";
 
   return (
-    <section className="w-full mt-16 ">
+    <section className="w-full mt-16 scroll-mt-28" id="our-clients">
       <div className="container space-y-10">
         {/* Row 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
