@@ -1,11 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 const baseSettings = {
   dots: false,
@@ -18,21 +16,31 @@ const baseSettings = {
   swipe: false,
   pauseOnHover: false,
   pauseOnFocus: false,
+  draggable: false,
   variableWidth: false,
   slidesToShow: 6,
   slidesToScroll: 1,
-  draggable: false,
   responsive: [
-    { breakpoint: 1536, settings: { slidesToShow: 6 } },
-    { breakpoint: 1280, settings: { slidesToShow: 5 } },
-    { breakpoint: 1024, settings: { slidesToShow: 4 } },
-    { breakpoint: 768, settings: { slidesToShow: 3 } },
-    { breakpoint: 640, settings: { slidesToShow: 2 } },
-    { breakpoint: 450, settings: { slidesToShow: 1 } },
+    { breakpoint: 1536, settings: { slidesToShow: 6, variableWidth: false } },
+    { breakpoint: 1280, settings: { slidesToShow: 5, variableWidth: false } },
+    { breakpoint: 1024, settings: { slidesToShow: 4, variableWidth: false } },
+    { breakpoint: 768, settings: { slidesToShow: 1, variableWidth: true } },
+    { breakpoint: 640, settings: { slidesToShow: 1, variableWidth: true } },
+    { breakpoint: 450, settings: { slidesToShow: 1, variableWidth: true } },
   ],
 };
 
 export default function MarqueeShowcase() {
+  const topRef = useRef(null);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (topRef.current) topRef.current.slickGoTo(0, true);
+      if (bottomRef.current) bottomRef.current.slickGoTo(0, true);
+    }, 0);
+  }, []);
+
   const leftMarquee = { ...baseSettings, rtl: false };
   const rightMarquee = { ...baseSettings, rtl: true };
 
@@ -41,41 +49,35 @@ export default function MarqueeShowcase() {
     { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
     { src: "/images/company3.png", alt: "Logo 3", title: "Aggarwal Steel Industries" },
     { src: "/images/company1.png", alt: "Logo 4", title: "Mahashakti Energy" },
-    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries pvt ltd" },
+    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries Pvt Ltd" },
     { src: "/images/company3.png", alt: "Logo 6", title: "Aggarwal Steel Industries" },
   ];
 
   const logosBottom = [
-    { src: "/images/gov1.png", alt: "Logo 8", title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "Logo 9", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "Logo 10", title: "Ajmer Vidyut Vitran Nigam" },
-    { src: "/images/gov1.png", alt: "Logo 11", title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "Logo 12", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "Logo 13", title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "JVVNL", title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "AVVNL", title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "JVVNL", title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "AVVNL", title: "Ajmer Vidyut Vitran Nigam" },
   ];
-
-
-  const titleTopRight = "Powering Diverse Industries";
-  const titleBottomLeft = "Approved & Certified by Authorities";
 
   return (
     <section className="w-full mt-8 sm:mt-12 md:mt-16 scroll-mt-28 px-4 sm:px-6" id="our-clients">
       <div className="container space-y-6 sm:space-y-8 md:space-y-10 max-w-7xl mx-auto">
-        {/* Row 1 - Stack on mobile/tablet, grid on desktop */}
+        {/* Row 1 */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
           <LightCard>
-            <MaskedMarquee logos={logosTop} settings={leftMarquee} maskBase="#ffffff" />
+            <MaskedMarquee innerRef={topRef} logos={logosTop} settings={leftMarquee} />
           </LightCard>
-
-          <TitleCard badge={"Our Clients"} title={titleTopRight} />
+          <TitleCard badge="Our Clients" title="Powering Diverse Industries" />
         </div>
 
-        {/* Row 2 - Stack on mobile/tablet, grid on desktop */}
+        {/* Row 2 */}
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
-          <TitleCard badge={"GOVERNMENT APPROVALS"} title={titleBottomLeft} align="left" />
-
+          <TitleCard badge="GOVERNMENT APPROVALS" title="Approved & Certified by Authorities" align="left" />
           <LightCard className="lg:col-span-2">
-            <MaskedMarquee logos={logosBottom} settings={rightMarquee} maskBase="#ffffff" />
+            <MaskedMarquee innerRef={bottomRef} logos={logosBottom} settings={rightMarquee} />
           </LightCard>
         </div>
       </div>
@@ -93,10 +95,8 @@ function LightCard({ children, className = "" }) {
         "p-3 sm:p-4 md:p-5",
         className,
       ].join(" ")}
-      style={{ backgroundColor: "#ffffff" }}
     >
       {children}
-      {/* thin accent underline */}
       <div
         className="pointer-events-none absolute -bottom-[1px] left-0 right-0 h-[2px] sm:h-[3px] rounded-b-xl sm:rounded-b-2xl"
         style={{ background: "linear-gradient(90deg,#cc0001,rgba(204,0,1,0.4),transparent)" }}
@@ -131,27 +131,21 @@ function TitleCard({ badge, title, align = "left" }) {
   );
 }
 
-function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
+function MaskedMarquee({ logos, settings, innerRef }) {
   const items = [...logos, ...logos];
-
   return (
     <div className="relative h-full flex items-center justify-center min-h-[140px] sm:min-h-[160px]">
-      {/* ... masks ... */}
       <Slider
+        ref={innerRef}
         {...settings}
         className="[&_.slick-track]:flex [&_.slick-track]:items-center [&_.slick-slide>div]:px-3 sm:[&_.slick-slide>div]:px-4 md:[&_.slick-slide>div]:px-5 w-full"
       >
         {items.map((logo, i) => (
           <div
-            key={`${logo?.src}-${i}`}
-            className="flex items-center justify-center h-full min-w-[150px] sm:min-w-[120px]"
+            key={i}
+            className="flex items-center justify-center h-full min-w-[96px] sm:min-w-[128px]"
           >
-            <LogoChip
-              src={logo?.src}
-              alt={logo?.alt || "Logo"}
-              title={logo?.title}
-              eager={i < 6}
-            />
+            <LogoChip src={logo.src} alt={logo.alt} title={logo.title} eager={i < 6} />
           </div>
         ))}
       </Slider>
@@ -159,7 +153,7 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
   );
 }
 
-function LogoChip({ src, alt, eager = false, title }) {
+function LogoChip({ src, alt, eager, title }) {
   return (
     <div className="flex flex-col items-center justify-start">
       <div
@@ -172,12 +166,11 @@ function LogoChip({ src, alt, eager = false, title }) {
           alt={alt}
           loading={eager ? "eager" : "lazy"}
           className="max-h-full max-w-full object-contain opacity-90 grayscale
-                   hover:opacity-100 hover:grayscale-0
-                   transition-transform duration-200 hover:scale-[1.05]"
+                   hover:opacity-100 hover:grayscale-0 transition-transform duration-200 hover:scale-[1.05]"
         />
       </div>
       {title && (
-        <p className="text-center mt-1.5 sm:mt-2 text-[10px] sm:text-sm font-medium text-neutral-700 line-clamp-2">
+        <p className="w-[88px] sm:w-auto text-center mt-1.5 sm:mt-2 text-[10px] sm:text-sm font-medium text-neutral-700 line-clamp-2">
           {title}
         </p>
       )}
