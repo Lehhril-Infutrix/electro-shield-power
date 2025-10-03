@@ -15,13 +15,14 @@ import "slick-carousel/slick/slick-theme.css";
  * - Subtle border: rgba(0,0,0,0.08)
  */
 
+
 const baseSettings = {
   dots: false,
   arrows: false,
   infinite: true,
   autoplay: true,
   autoplaySpeed: 0,
-  speed: 4000,
+  speed: 6000,
   cssEase: "linear",
   swipe: false,
   pauseOnHover: false,
@@ -29,6 +30,7 @@ const baseSettings = {
   variableWidth: false,
   slidesToShow: 6,
   slidesToScroll: 1,
+  draggable: false,
   responsive: [
     { breakpoint: 1536, settings: { slidesToShow: 6 } },
     { breakpoint: 1280, settings: { slidesToShow: 5 } },
@@ -43,24 +45,25 @@ export default function MarqueeShowcase() {
   const rightMarquee = { ...baseSettings, rtl: true };
 
   // Hardcoded data
+  // In your data:
   const logosTop = [
-    { src: "https://picsum.photos/seed/1/200/200", alt: "Logo 1" },
-    { src: "https://picsum.photos/seed/2/200/200", alt: "Logo 2" },
-    { src: "https://picsum.photos/seed/3/200/200", alt: "Logo 3" },
-    { src: "https://picsum.photos/seed/4/200/200", alt: "Logo 4" },
-    { src: "https://picsum.photos/seed/5/200/200", alt: "Logo 5" },
-    { src: "https://picsum.photos/seed/6/200/200", alt: "Logo 6" },
-    { src: "https://picsum.photos/seed/7/200/200", alt: "Logo 7" },
+    { src: "/images/company1.png", alt: "Logo 1", title: "Mahashakti Energy" },
+    { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
+    { src: "/images/company3.png", alt: "Logo 3", title: "Aggarwal Steel Industries" },
+    { src: "/images/company1.png", alt: "Logo 4", title: "Mahashakti Energy" },
+    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries pvt ltd" },
+    { src: "/images/company3.png", alt: "Logo 6", title: "Aggarwal Steel Industries" },
   ];
 
   const logosBottom = [
-    { src: "/images/gov1.png", alt: "Logo 8" },
-    { src: "/images/gov2.png", alt: "Logo 9" },
-    { src: "/images/gov3.png", alt: "Logo 10" },
-    { src: "/images/gov1.png", alt: "Logo 11" },
-    { src: "/images/gov2.png", alt: "Logo 12" },
-    { src: "/images/gov3.png", alt: "Logo 13" },
+    { src: "/images/gov1.png", alt: "Logo 8", title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "Logo 9", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "Logo 10", title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "Logo 11", title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "Logo 12", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "Logo 13", title: "Ajmer Vidyut Vitran Nigam" },
   ];
+
 
   const titleTopRight = "Powering Diverse Industries";
   const titleBottomLeft = "Approved & Certified by Authorities";
@@ -145,20 +148,7 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
 
   return (
     <div className="relative h-full flex items-center justify-center">
-      {/* edge fade masks */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-16 rounded-l-2xl"
-        style={{
-          background: `linear-gradient(90deg, ${maskBase} 0%, rgba(255,255,255,0) 100%)`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-16 rounded-r-2xl"
-        style={{
-          background: `linear-gradient(270deg, ${maskBase} 0%, rgba(255,255,255,0) 100%)`,
-        }}
-      />
-
+      {/* ... masks ... */}
       <Slider
         {...settings}
         className="[&_.slick-track]:flex [&_.slick-track]:items-center [&_.slick-slide>div]:px-5 w-full"
@@ -168,7 +158,12 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
             key={`${logo?.src}-${i}`}
             className="flex items-center justify-center h-full"
           >
-            <LogoChip src={logo?.src} alt={logo?.alt || 'Logo'} eager={i < 6} />
+            <LogoChip
+              src={logo?.src}
+              alt={logo?.alt || "Logo"}
+              title={logo?.title}
+              eager={i < 6}
+            />
           </div>
         ))}
       </Slider>
@@ -176,21 +171,28 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
   );
 }
 
-function LogoChip({ src, alt, eager = false }) {
+function LogoChip({ src, alt, eager = false, title }) {
   return (
-    <div
-      className="h-32 w-32 flex items-center justify-center
+    <div>
+      <div
+        className="h-28 w-28 flex items-center justify-center
                  p-2 rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
                  hover:bg-[rgba(0,0,0,0.05)] transition"
-    >
-      <img
-        src={src}
-        alt={alt}
-        loading={eager ? "eager" : "lazy"}
-        className="max-h-full max-w-full object-contain opacity-90 grayscale
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading={eager ? "eager" : "lazy"}
+          className="max-h-full max-w-full object-contain opacity-90 grayscale
                    hover:opacity-100 hover:grayscale-0
                    transition-transform duration-200 hover:scale-[1.05]"
-      />
+        />
+      </div>
+      {title && (
+        <p className="text-center mt-2 text-sm font-medium text-neutral-700">
+          {title}
+        </p>
+      )}
     </div>
   );
 }
