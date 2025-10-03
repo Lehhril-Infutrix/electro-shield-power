@@ -28,6 +28,7 @@ const baseSettings = {
     { breakpoint: 1024, settings: { slidesToShow: 4 } },
     { breakpoint: 768, settings: { slidesToShow: 3 } },
     { breakpoint: 640, settings: { slidesToShow: 2 } },
+    { breakpoint: 450, settings: { slidesToShow: 1 } },
   ],
 };
 
@@ -162,7 +163,7 @@ function LogoChip({ src, alt, eager = false, title }) {
   return (
     <div className="flex flex-col items-center justify-start">
       <div
-        className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 flex items-center justify-center
+        className="h-10 w-10 sm:h-24 sm:w-24 md:h-28 md:w-28 flex items-center justify-center
                  p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
                  hover:bg-[rgba(0,0,0,0.05)] transition"
       >
