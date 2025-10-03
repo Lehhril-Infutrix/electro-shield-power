@@ -144,7 +144,7 @@ function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
         {items.map((logo, i) => (
           <div
             key={`${logo?.src}-${i}`}
-            className="flex items-center justify-center h-full min-w-[90px] sm:min-w-[120px]"
+            className="flex items-center justify-center h-full min-w-[150px] sm:min-w-[120px]"
           >
             <LogoChip
               src={logo?.src}
