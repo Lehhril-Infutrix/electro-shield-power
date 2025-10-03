@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
+    "@vercel/speed-insights": "^1.2.0",
     "aos": "^2.3.4",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.542.0",

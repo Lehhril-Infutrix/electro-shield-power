@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import TopHeader from "@/components/layout/TopHeader";
 import { Outfit } from "next/font/google";
 import ScrollToggleButton from "@/components/layout/ScrollToggleButton";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <WhatsAppButton />
         <ScrollToggleButton />
+        <SpeedInsights />
       </body>
     </html>
   );
