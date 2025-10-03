@@ -1,82 +1,63 @@
 "use client";
 
 import React from "react";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+/**
+ * Why this behaves:
+ * - slidesPerView: 'auto' on small screens + min-width on slides = no squish
+ * - 6-up on lg via breakpoints
+ * - Autoplay with delay: 0 + speed gives true marquee effect
+ * - reverseDirection toggles row direction cleanly
+ */
 
-
-const baseSettings = {
-  dots: false,
-  arrows: false,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 0,
-  speed: 6000,
-  cssEase: "linear",
-  swipe: false,
-  pauseOnHover: false,
-  pauseOnFocus: false,
-  variableWidth: false,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  draggable: false,
-  
-  responsive: [
-    { breakpoint: 1536, settings: { slidesToShow: 6 } },
-    { breakpoint: 1280, settings: { slidesToShow: 5 } },
-    { breakpoint: 1024, settings: { slidesToShow: 4 } },
-    { breakpoint: 768, settings: { slidesToShow: 3 } },
-    { breakpoint: 640, settings: { slidesToShow: 2 } },
-    { breakpoint: 450, settings: { slidesToShow: 1 } },
-  ],
-};
+const MOBILE_MIN_W = 96;   // px per chip on phones
+const TABLET_MIN_W = 128;  // px per chip on small tablets
+const DESKTOP_ITEMS = 6;   // keep 6-up on desktop
+const SCROLL_SPEED = 3000; // higher = slower movement; lower = faster
 
 export default function MarqueeShowcase() {
-  const leftMarquee = { ...baseSettings, rtl: false };
-  const rightMarquee = { ...baseSettings, rtl: true };
-
   const logosTop = [
     { src: "/images/company1.png", alt: "Logo 1", title: "Mahashakti Energy" },
     { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
     { src: "/images/company3.png", alt: "Logo 3", title: "Aggarwal Steel Industries" },
     { src: "/images/company1.png", alt: "Logo 4", title: "Mahashakti Energy" },
-    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries pvt ltd" },
+    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries Pvt Ltd" },
     { src: "/images/company3.png", alt: "Logo 6", title: "Aggarwal Steel Industries" },
   ];
 
   const logosBottom = [
-    { src: "/images/gov1.png", alt: "Logo 8", title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "Logo 9", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "Logo 10", title: "Ajmer Vidyut Vitran Nigam" },
-    { src: "/images/gov1.png", alt: "Logo 11", title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "Logo 12", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "Logo 13", title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "JVVNL",  title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "AVVNL",  title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "JVVNL",  title: "Jaipur Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
+    { src: "/images/gov3.png", alt: "AVVNL",  title: "Ajmer Vidyut Vitran Nigam" },
   ];
-
-
-  const titleTopRight = "Powering Diverse Industries";
-  const titleBottomLeft = "Approved & Certified by Authorities";
 
   return (
     <section className="w-full mt-8 sm:mt-12 md:mt-16 scroll-mt-28 px-4 sm:px-6" id="our-clients">
       <div className="container space-y-6 sm:space-y-8 md:space-y-10 max-w-7xl mx-auto">
-        {/* Row 1 - Stack on mobile/tablet, grid on desktop */}
+        {/* Row 1 */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
           <LightCard>
-            <MaskedMarquee logos={logosTop} settings={leftMarquee} maskBase="#ffffff" />
+            <MarqueeSwiper items={logosTop} reverse={false} />
           </LightCard>
-
-          <TitleCard badge={"Our Clients"} title={titleTopRight} />
+          <TitleCard badge="Our Clients" title="Powering Diverse Industries" />
         </div>
 
-        {/* Row 2 - Stack on mobile/tablet, grid on desktop */}
+        {/* Row 2 */}
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
-          <TitleCard badge={"GOVERNMENT APPROVALS"} title={titleBottomLeft} align="left" />
-
+          <TitleCard
+            badge="GOVERNMENT APPROVALS"
+            title="Approved & Certified by Authorities"
+            align="left"
+          />
           <LightCard className="lg:col-span-2">
-            <MaskedMarquee logos={logosBottom} settings={rightMarquee} maskBase="#ffffff" />
+            <MarqueeSwiper items={logosBottom} reverse={true} />
           </LightCard>
         </div>
       </div>
@@ -84,20 +65,64 @@ export default function MarqueeShowcase() {
   );
 }
 
+/* ---------- Swiper marquee ---------- */
+function MarqueeSwiper({ items, reverse }) {
+  // Double the array to ensure continuity even if loop duplicates glitch
+  const slides = [...items, ...items, ...items, ...items];
+
+  return (
+    <div className="relative h-full flex items-center justify-center min-h-[140px] sm:min-h-[160px]">
+      <Swiper
+        modules={[Autoplay, FreeMode]}
+        loop
+        freeMode={{ enabled: true, momentum: false }}
+        allowTouchMove={false}                 // marquee, not a gallery
+        slidesPerView={"auto"}                 // mobile: size by content width
+        spaceBetween={16}
+        speed={SCROLL_SPEED}
+        autoplay={{
+          delay: 0,                            // continuous
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+          reverseDirection: !!reverse,
+        }}
+        breakpoints={{
+          1024: {                               // lg and up: lock to 6 visible
+            slidesPerView: DESKTOP_ITEMS,
+            spaceBetween: 20,
+          },
+        }}
+        className="w-full"
+      >
+        {slides.map((logo, i) => (
+          <SwiperSlide
+            key={`${logo.src}-${i}`}
+            // width rules for 'auto' mode; on lg we let Swiper handle the 6-up
+            className="!w-auto lg:!w-auto"
+          >
+            <div className="px-3 sm:px-4 md:px-5">
+              <div className={`shrink-0 min-w-[${MOBILE_MIN_W}px] sm:min-w-[${TABLET_MIN_W}px] lg:min-w-0`}>
+                <LogoChip src={logo.src} alt={logo.alt || "Logo"} title={logo.title} eager={i < 6} />
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
+/* ---------- Cards (unchanged visuals) ---------- */
 function LightCard({ children, className = "" }) {
   return (
     <div
       className={[
-        "lg:col-span-2 relative rounded-xl sm:rounded-2xl",
-        "bg-white text-neutral-900",
-        "border border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]",
-        "p-3 sm:p-4 md:p-5",
+        "lg:col-span-2 relative rounded-xl sm:rounded-2xl bg-white text-neutral-900",
+        "border border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-3 sm:p-4 md:p-5",
         className,
       ].join(" ")}
-      style={{ backgroundColor: "#ffffff" }}
     >
       {children}
-      {/* thin accent underline */}
       <div
         className="pointer-events-none absolute -bottom-[1px] left-0 right-0 h-[2px] sm:h-[3px] rounded-b-xl sm:rounded-b-2xl"
         style={{ background: "linear-gradient(90deg,#cc0001,rgba(204,0,1,0.4),transparent)" }}
@@ -132,53 +157,25 @@ function TitleCard({ badge, title, align = "left" }) {
   );
 }
 
-function MaskedMarquee({ logos, settings, maskBase = "#ffffff" }) {
-  const items = [...logos, ...logos];
-
-  return (
-    <div className="relative h-full flex items-center justify-center min-h-[140px] sm:min-h-[160px]">
-      {/* ... masks ... */}
-      <Slider
-        {...settings}
-        className="[&_.slick-track]:flex [&_.slick-track]:items-center [&_.slick-slide>div]:px-3 sm:[&_.slick-slide>div]:px-4 md:[&_.slick-slide>div]:px-5 w-full"
-      >
-        {items.map((logo, i) => (
-          <div
-            key={`${logo?.src}-${i}`}
-            className="flex items-center justify-center h-full"
-          >
-            <LogoChip
-              src={logo?.src}
-              alt={logo?.alt || "Logo"}
-              title={logo?.title}
-              eager={i < 6}
-            />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
-}
-
+/* ---------- Logo chip ---------- */
 function LogoChip({ src, alt, eager = false, title }) {
   return (
     <div className="flex flex-col items-center justify-start">
       <div
         className="h-10 w-10 sm:h-24 sm:w-24 md:h-28 md:w-28 flex items-center justify-center
-                 p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
-                 hover:bg-[rgba(0,0,0,0.05)] transition"
+                   p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[rgba(0,0,0,0.03)] border border-black/10
+                   hover:bg-[rgba(0,0,0,0.05)] transition"
       >
         <img
           src={src}
           alt={alt}
           loading={eager ? "eager" : "lazy"}
           className="max-h-full max-w-full object-contain opacity-90 grayscale
-                   hover:opacity-100 hover:grayscale-0
-                   transition-transform duration-200 hover:scale-[1.05]"
+                     hover:opacity-100 hover:grayscale-0 transition-transform duration-200 hover:scale-[1.05]"
         />
       </div>
       {title && (
-        <p className="text-center mt-1.5 sm:mt-2 text-[10px] sm:text-sm font-medium text-neutral-700 line-clamp-2">
+        <p className="w-[88px] sm:w-auto text-center mt-1.5 sm:mt-2 text-[10px] sm:text-sm font-medium text-neutral-700 line-clamp-2">
           {title}
         </p>
       )}
