@@ -102,7 +102,7 @@ const About = () => {
             )}
             {activeTab === "quality" && (
               <p className="text-gray-600 mb-8">
-                Our ISO 9001 certified quality assurance ensures excellence in every batch. With advanced testing, technical support, and a commitment to reliability, we guarantee consistent product performance, durability, and customer satisfaction.
+                Our ISO 9001:2015 certified quality assurance ensures excellence in every batch. With advanced testing, technical support, and a commitment to reliability, we guarantee consistent product performance, durability, and customer satisfaction.
               </p>
             )}
 

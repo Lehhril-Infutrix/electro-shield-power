@@ -22,7 +22,7 @@ const stats = [
   { 
     icon: <Award className="h-8 w-8 text-red-600" />, 
     value: "ISO", 
-    label: "9001 Certified" 
+    label: "9001:2015 Certified" 
   },
   { 
     icon: <Users className="h-8 w-8 text-red-600" />, 
