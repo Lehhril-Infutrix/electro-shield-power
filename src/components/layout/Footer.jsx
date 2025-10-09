@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const footerData = {
   "/": {
     company: {
-      name: "ElectroShield Group",
+      name: "Electroshield Industries",
       desc:
         "With several years of industrial manufacturing, ElectroShield delivers reliable power components first — and through our DreamShield division, advanced R&D drives long-lasting protection systems.",
     },
