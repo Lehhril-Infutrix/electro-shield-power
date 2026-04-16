@@ -34,7 +34,6 @@ const footerData = {
       { label: "About", href: "#about" },
       { label: "Features", href: "#features" },
       { label: "Products", href: "#products" },
-      { label: "Testimonials", href: "#testimonials" },
       { label: "Contact", href: "#contact" },
     ],
     products: [
@@ -52,10 +51,9 @@ const footerData = {
     links: [
       { label: "Home", href: "/dreamshield" },
       { label: "About", href: "#about" },
-      { label: "R&D", href: "#rnd" },
+      { label: "R&D", href: "#r&d" },
       { label: "Products", href: "#products" },
       { label: "Resources", href: "#resources" },
-      { label: "Careers", href: "#careers" },
       { label: "Contact Us", href: "#contact" },
     ],
     products: ["Industrial Paints", "Primers", "Thinners", "Adhesives"],
