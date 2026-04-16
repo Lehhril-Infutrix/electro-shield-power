@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 
 const products = [
   {
-    image: "/images/oil_circuit.jpg",
+    image: "/images/oil_circuit_1.jpeg",
     title: "Internal Circuit Breakers",
     short_desc: "Reliable breakers designed for transformer protection.",
     long_desc:
@@ -133,7 +133,7 @@ const Products = () => {
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-52 object-contain"
+                className="w-full h-72 object-cover"
               />
               <div className="p-6">
                 <h4 className="text-xl font-bold text-heading mb-2">
@@ -191,7 +191,7 @@ const Products = () => {
             {/* Scrollable content area */}
             <div className="overflow-y-auto overflow-x-hidden px-6 pb-6" style={{ maxHeight: "calc(85vh - 72px)" }}>
               {/* Image */}
-              <div className="w-full h-40 md:h-72 overflow-hidden rounded-2xl m-auto mt-4">
+              <div className="w-full h-40 md:h-[350px] overflow-hidden rounded-2xl m-auto mt-4">
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.title}

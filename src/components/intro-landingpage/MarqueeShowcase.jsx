@@ -1,23 +1,17 @@
 "use client";
-
 import React from "react";
-
-/**
- * Pure CSS marquee implementation - no external libraries
- * - True infinite scroll with CSS animations
- * - Seamless loop with duplicated content
- * - Pause on hover
- * - Fully responsive
- */
 
 export default function MarqueeShowcase() {
   const logosTop = [
     { src: "/images/company1.png", alt: "Logo 1", title: "Mahashakti Energy" },
     { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
     { src: "/images/company3.png", alt: "Logo 3", title: "Aggarwal Steel Industries" },
-    { src: "/images/company1.png", alt: "Logo 4", title: "Mahashakti Energy" },
-    { src: "/images/company2.png", alt: "Logo 5", title: "PP Industries Pvt Ltd" },
-    { src: "/images/company3.png", alt: "Logo 6", title: "Aggarwal Steel Industries" },
+    { src: "/images/company4.png", alt: "Logo 4", title: "Jayco Electricals" },
+    { src: "/images/company5.png", alt: "Logo 5", title: "Amrest Innovative Power Solutions" },
+    { src: "/images/company6.png", alt: "Logo 6", title: "Geesons Transformers" },
+    { src: "/images/company7.png", alt: "Logo 4", title: "Suman Electricals" },
+    { src: "/images/company8.png", alt: "Logo 5", title: "Hi-Tech Transformers" },
+    { src: "/images/company9.png", alt: "Logo 6", title: "Transformers" },
   ];
 
   const logosBottom = [
