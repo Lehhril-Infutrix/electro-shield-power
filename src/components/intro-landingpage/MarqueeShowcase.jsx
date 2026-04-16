@@ -21,12 +21,12 @@ export default function MarqueeShowcase() {
   ];
 
   const logosBottom = [
-    { src: "/images/gov1.png", alt: "JVVNL",  title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "AVVNL",  title: "Ajmer Vidyut Vitran Nigam" },
-    { src: "/images/gov1.png", alt: "JVVNL",  title: "Jaipur Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam" },
-    { src: "/images/gov3.png", alt: "AVVNL",  title: "Ajmer Vidyut Vitran Nigam" },
+    { src: "/images/gov1.png", alt: "DAVVNL",  title: "Dakshinanchal Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "PKVVNL", title: "Paschim Kshetra Vidyut Vitaran Nigam" },
+    { src: "/images/gov3.png", alt: "MVVNL",  title: "Madhyanchal Vidyut Vitaran Nigam" },
+    { src: "/images/gov4.png", alt: "DVVNL",  title: "Dakshinanchal Vidyut Vitaran Nigam" },
+    { src: "/images/gov1.png", alt: "DAVVNL",  title: "Dakshinanchal Vidyut Vitran Nigam" },
+    { src: "/images/gov2.png", alt: "PKVVNL", title: "Paschim Kshetra Vidyut Vitaran Nigam" },
   ];
 
   return (
