@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const footerData = {
   "/": {
     company: {
-      name: "Electroshield Industries",
+      name: "ElectroShield Power Industries",
       desc:
         "With several years of industrial manufacturing, ElectroShield delivers reliable power components first — and through our DreamShield division, advanced R&D drives long-lasting protection systems.",
     },
@@ -252,10 +252,10 @@ export default function Footer() {
             <li className="flex items-start space-x-3">
               <Mail className="text-[#CC0001] w-5 h-5 mt-1" />
               <a
-                href="mailto:info@electroshield.com"
+                href="mailto:info@electroshieldpower.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                info@electroshield.com
+                info@electroshieldpower.com
               </a>
             </li>
             <li className="flex items-start space-x-3">

@@ -19,8 +19,9 @@ export default function MarqueeShowcase() {
     { src: "/images/gov2.png", alt: "PKVVNL", title: "Paschim Kshetra Vidyut Vitaran Nigam" },
     { src: "/images/gov3.png", alt: "MVVNL",  title: "Madhyanchal Vidyut Vitaran Nigam" },
     { src: "/images/gov4.png", alt: "DVVNL",  title: "Dakshinanchal Vidyut Vitaran Nigam" },
-    { src: "/images/gov1.png", alt: "DAVVNL",  title: "Dakshinanchal Vidyut Vitran Nigam" },
-    { src: "/images/gov2.png", alt: "PKVVNL", title: "Paschim Kshetra Vidyut Vitaran Nigam" },
+    { src: "/images/gov11.png", alt: "JVVNL",  title: "Jaipur Vidyut Vitran Nigam Ltd." },
+    { src: "/images/gov22.png", alt: "JDVVNL", title: "Jodhpur Vidyut Vitran Nigam Ltd." },
+    { src: "/images/gov33.png", alt: "AVVNL", title: "Ajmer Vidyut Vitran Nigam Ltd." },
   ];
 
   return (
@@ -165,8 +166,8 @@ function LogoChip({ src, alt, eager = false, title }) {
           src={src}
           alt={alt}
           loading={eager ? "eager" : "lazy"}
-          className="max-h-full max-w-full object-contain opacity-90 grayscale
-                     hover:opacity-100 hover:grayscale-0 transition-transform duration-200 hover:scale-[1.05]"
+          className="max-h-full max-w-full object-contain opacity-90
+                     hover:opacity-100 transition-transform duration-200 hover:scale-[1.05]"
         />
       </div>
       {title && (

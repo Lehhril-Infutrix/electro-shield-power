@@ -73,6 +73,19 @@ const products = [
   },
 ];
 
+const circuitBreakerSizing = [
+  {
+    phase: "Single Phase",
+    sizes: ["5 kVA", "10 kVA", "16 kVA", "25 kVA"],
+  },
+  {
+    phase: "3 Phase",
+    sizes: ["16 kVA", "25 kVA", "63 kVA", "100 kVA"],
+  },
+];
+
+const brassFittingsSizing = ["12 mm", "20 mm", "30 mm"];
+
 
 
 
@@ -204,6 +217,76 @@ const Products = () => {
                 <p className="text-gray-700 leading-relaxed mb-6">
                   {selectedProduct.long_desc}
                 </p>
+
+                {selectedProduct.title === "Internal Circuit Breakers" && (
+                  <div className="mb-8 overflow-x-auto">
+                    <h5 className="text-xl font-semibold text-gray-900 mb-3">
+                      Circuit Breaker Sizes Available
+                    </h5>
+                    <table className="w-full border border-gray-200 rounded-lg overflow-hidden text-left">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-b border-gray-200">
+                            Type
+                          </th>
+                          <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-b border-gray-200">
+                            Available Ratings
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {circuitBreakerSizing.map((row, i) => (
+                          <tr key={row.phase} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                            <td className="px-4 py-3 font-medium text-gray-900 border-b border-gray-200">
+                              {row.phase}
+                            </td>
+                            <td className="px-4 py-3 text-gray-700 border-b border-gray-200">
+                              {row.sizes.join(", ")}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {selectedProduct.title === "Transformer Accessories" && (
+                  <div className="mb-8 overflow-x-auto">
+                    <h5 className="text-xl font-semibold text-gray-900 mb-3">
+                      Brass Fittings Sizes Available
+                    </h5>
+                    <table className="w-full border border-gray-200 rounded-lg overflow-hidden text-left">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-b border-gray-200">
+                            Accessory
+                          </th>
+                          <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-b border-gray-200">
+                            Available Sizes
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-white">
+                          <td className="px-4 py-3 font-medium text-gray-900 border-b border-gray-200">
+                            Brass Fittings
+                          </td>
+                          <td className="px-4 py-3 text-gray-700 border-b border-gray-200">
+                            {brassFittingsSizing.join(", ")}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div className="mt-5 rounded-xl overflow-hidden border border-gray-200">
+                      <img
+                        src="/images/brass.jpeg"
+                        alt="Brass transformer fitting"
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {selectedProduct.variants?.map((variant, i) => (
                   <div key={i} className="mb-6">

@@ -75,7 +75,7 @@ const Contact = () => {
           {[
             { icon: Phone, label: "Call us", content: "+91 98 759 83535", href: "tel:+919875983535" },
             { icon: MapPin, label: "Find us", content: "C-26(P), Industrial Growth Center, Mansa Road, Bathinda, Punjab (151001)" },
-            { icon: Mail, label: "Email", content: "info@electroshield.com", href: "mailto:info@electroshield.com" },
+            { icon: Mail, label: "Email", content: "info@electroshieldpower.com", href: "mailto:info@electroshieldpower.com" },
           ].map((item, idx) => {
             const Icon = item.icon;
             const isLink = Boolean(item.href);
@@ -117,15 +117,13 @@ const Contact = () => {
           {/* small map */}
           <div className="w-full h-48 sm:h-56 rounded-xl overflow-hidden shadow-sm" data-aos="zoom-in-up">
             <iframe
-              title="Office map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109605.1580720669!2d74.8787582!3d30.2109946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3916a5d5a6e10bdb%3A0x30fba6c3a6980c2f!2sBathinda%2C%20Punjab!5e0!3m2!1sen!2sin!4v1693659845156!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.62648022405!2d74.95392841667174!3d30.17157437132398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39172d5faf565427%3A0xebdc0fdd383c0fd9!2sElectroshield%20Power%20Industries!5e1!3m2!1sen!2sin!4v1776660753933!5m2!1sen!2sin"
               width="100%"
-              height="100%"
+              height="450"
               style={{ border: 0 }}
               loading="lazy"
-              allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-            />
+            ></iframe>
           </div>
         </div>
 
