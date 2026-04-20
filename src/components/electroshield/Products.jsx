@@ -33,19 +33,19 @@ const products = [
     ],
   },
   {
-    image: "/images/bushing.jpg",
+    image: "/images/brass_1.png",
     title: "Transformer Accessories",
     short_desc: "High-quality accessories that improve safety and longevity.",
     long_desc:
-      "ElectroShield supplies precision transformer accessories designed to ensure reliability, durability, and ease of assembly. Our range includes fittings, clamps, and core bolt/birods — all manufactured to meet strict industry standards for safety and performance.",
+      "Electroshield supplies precision transformer accessories designed to ensure reliability, durability, and ease of assembly. Our range includes fittings, clamps, and core bolt/tierods — all manufactured to meet strict industry standards for safety and performance.",
     variants: [
       {
         name: "Fittings",
         description:
-          "Essential parts like LV and HV bushings that maintain safe current flow in and out of transformers while providing long service life and insulation.",
+          "Essential parts like LV and HV fitting that maintain safe current flow in and out of transformers while providing long service life and insulation.",
         bullets: [
-          "LV bushings suitable up to 1.1 kV service voltage",
-          "HV bushings available for 11 kV, 22 kV, and 33 kV systems",
+          "LV fitting suitable up to 1.1 kV service voltage",
+          "HV fitting available for 11 kV, 22 kV, and 33 kV systems",
           "Manufactured with brass conductors and durable insulation",
         ],
       },
@@ -60,9 +60,9 @@ const products = [
         ],
       },
       {
-        name: "Core Bolt / Birods",
+        name: "Core Bolt / Tierods",
         description:
-          "Bolts and birods designed to hold transformer cores firmly in place. Built from high-tensile steel for mechanical stability and electrical reliability.",
+          "Bolts and tierods designed to hold transformer cores firmly in place. Built from high-tensile steel for mechanical stability.",
         bullets: [
           "Provides core clamping to prevent shifting under load",
           "Zinc-coated or epoxy-coated options for rust prevention",
@@ -128,7 +128,7 @@ const Products = () => {
             Engineered for Reliability
           </h3>
           <p className="text-gray-600">
-            ElectroShield specializes in oil immersed internal circuit breakers and transformer fittings,
+            Electroshield specializes in oil immersed internal circuit breakers and transformer fittings,
             built for long service life and consistent performance.
           </p>
         </div>
@@ -221,7 +221,7 @@ const Products = () => {
                 {selectedProduct.title === "Internal Circuit Breakers" && (
                   <div className="mb-8 overflow-x-auto">
                     <h5 className="text-xl font-semibold text-gray-900 mb-3">
-                      Circuit Breaker Sizes Available
+                      Circuit Breaker Rating Available
                     </h5>
                     <table className="w-full border border-gray-200 rounded-lg overflow-hidden text-left">
                       <thead>
@@ -253,7 +253,7 @@ const Products = () => {
                 {selectedProduct.title === "Transformer Accessories" && (
                   <div className="mb-8 overflow-x-auto">
                     <h5 className="text-xl font-semibold text-gray-900 mb-3">
-                      Brass Fittings Sizes Available
+                      Brass Fittings Rating Available
                     </h5>
                     <table className="w-full border border-gray-200 rounded-lg overflow-hidden text-left">
                       <thead>
@@ -262,7 +262,7 @@ const Products = () => {
                             Accessory
                           </th>
                           <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-b border-gray-200">
-                            Available Sizes
+                            Available Ratings
                           </th>
                         </tr>
                       </thead>
@@ -277,14 +277,6 @@ const Products = () => {
                         </tr>
                       </tbody>
                     </table>
-
-                    <div className="mt-5 rounded-xl overflow-hidden border border-gray-200">
-                      <img
-                        src="/images/brass.jpeg"
-                        alt="Brass transformer fitting"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
                   </div>
                 )}
 
@@ -294,6 +286,18 @@ const Products = () => {
                       {variant.name}
                     </h5>
                     <p className="text-gray-700 mt-2">{variant.description}</p>
+
+                    {selectedProduct.title === "Transformer Accessories" &&
+                      variant.name === "Clamps" && (
+                        <div className="mt-4 rounded-xl overflow-hidden border border-gray-200">
+                          <img
+                            src="/images/clamp.jpeg"
+                            alt="Transformer clamp"
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                      )}
+
                     {variant.bullets && (
                       <ul className="list-disc pl-5 mt-3 text-gray-600 space-y-1">
                         {variant.bullets.map((point, j) => (

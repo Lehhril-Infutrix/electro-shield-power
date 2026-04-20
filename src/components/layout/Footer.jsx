@@ -7,9 +7,9 @@ import { usePathname } from "next/navigation";
 const footerData = {
   "/": {
     company: {
-      name: "ElectroShield Power Industries",
+      name: "Electroshield Power Industries",
       desc:
-        "With several years of industrial manufacturing, ElectroShield delivers reliable power components first — and through our DreamShield division, advanced R&D drives long-lasting protection systems.",
+        "With several years of industrial manufacturing, Electroshield delivers reliable power components first — and through our Dreamshield division, advanced R&D drives long-lasting protection systems.",
     },
     links: [
       { label: "Home", href: "/" },
@@ -18,14 +18,14 @@ const footerData = {
       { label: "Contact", href: "#contact" },
     ],
     products: [
-      { label: "ElectroShield", href: "/electroshield" },
-      { label: "DreamShield", href: "/dreamshield" },
+      { label: "Electroshield", href: "/electroshield" },
+      { label: "Dreamshield", href: "/dreamshield" },
     ],
   },
 
   "/electroshield": {
     company: {
-      name: "ElectroShield",
+      name: "Electroshield",
       desc:
         "Reliable power components backed by quality and consistency — transformers, stabilizers, and precision assemblies trusted for performance and safety.",
     },
@@ -44,7 +44,7 @@ const footerData = {
 
   "/dreamshield": {
     company: {
-      name: "DreamShield",
+      name: "Dreamshield",
       desc:
         "Advanced R&D in coatings, resins, and adhesives for durable, high-performance finishes in demanding industrial environments.",
     },
@@ -158,11 +158,11 @@ export default function Footer() {
             </h3>
 
             <div className="">
-              {/* ElectroShield group */}
+              {/* Electroshield group */}
               <div className="mb-5">
                 <h4 className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide uppercase text-white/90">
                   <span className="rounded-full bg-white/10 px-2 py-1 text-white/80">
-                    ElectroShield
+                    Electroshield
                   </span>
                   <span className="h-px w-8 bg-white/20" />
                 </h4>
@@ -196,11 +196,11 @@ export default function Footer() {
               {/* Divider */}
               <div className="my-3 h-px w-full bg-white/10" />
 
-              {/* DreamShield group */}
+              {/* Dreamshield group */}
               <div>
                 <h4 className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide uppercase text-white/90">
                   <span className="rounded-full bg-white/10 px-2 py-1 text-white/80">
-                    DreamShield
+                    Dreamshield
                   </span>
                   <span className="h-px w-8 bg-white/20" />
                 </h4>

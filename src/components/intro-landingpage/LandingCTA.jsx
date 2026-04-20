@@ -33,18 +33,18 @@ export default function LandingCTA() {
           <Link
             href="/dreamshield"
             className="inline-flex items-center gap-3 bg-white text-[#CC0001] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition"
-            aria-label="Explore DreamShield"
+            aria-label="Explore Dreamshield"
           >
-            Explore DreamShield
+            Explore Dreamshield
             <ArrowRight className="w-4 h-4" />
           </Link>
 
           <Link
             href="/electroshield"
             className="inline-flex items-center gap-3 bg-white text-[#CC0001] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition"
-            aria-label="Explore ElectroShield"
+            aria-label="Explore Electroshield"
           >
-            Explore ElectroShield
+            Explore Electroshield
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

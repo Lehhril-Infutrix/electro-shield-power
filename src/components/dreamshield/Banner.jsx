@@ -26,7 +26,7 @@ const Banner = () => {
       <div className="relative z-10 container px-6">
         <div className="max-w-3xl mx-auto md:mx-0">
           <span className="bg-[#CC0001] text-white px-3 py-2 rounded text-xs sm:text-sm font-medium uppercase tracking-wide inline-block">
-            Welcome to DreamShield
+            Welcome to Dreamshield
           </span>
 
           {/* Heading */}
@@ -58,7 +58,7 @@ const Banner = () => {
 
           {/* Paragraph */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 pe-16">
-            DreamShield, the coatings division of ElectroShield
+            Dreamshield, the coatings division of Electroshield
             Industries, specializes in developing coatings, resins, and adhesives
             through dedicated research and rigorous testing. We deliver
             client-specific solutions that combine durability and quality with

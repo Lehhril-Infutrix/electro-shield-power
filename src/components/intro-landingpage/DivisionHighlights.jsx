@@ -9,7 +9,7 @@ import Button from "../UI/Button";
 const sections = [
 
    {
-    name: "ElectroShield",
+    name: "Electroshield",
     label: "ABOUT ELECTROSHIELD",
     description:
       "Providing precision-engineered transformer components that ensure safety, reliability, and efficiency. From oil immersed circuit breakers to tranformer fittings, delivering solutions that power industries with innovation and trust.",
@@ -20,13 +20,13 @@ const sections = [
     ],
     progressLabel: "Quality Assurance",
     progress: 95,
-    image: "/images/division_img2.webp", // replace
+    image: "/images/division_img3.png", // replace
     href: "/electroshield",
     reverse: true,
     id: "electro-shield",
   },
   {
-    name: "DreamShield",
+    name: "Dreamshield",
     label: "ABOUT DREAMSHIELD",
     description:
       "Delivering advanced protective and decorative finishes trusted for durability, aesthetics, and long-term performance. Combining beauty with functionality, meeting the highest global standards.",

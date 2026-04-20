@@ -43,9 +43,8 @@ const Banner = () => {
           <p
             className="mt-4 text-sm sm:text-base md:text-xl text-white"
           >
-            ElectroShield Power Industries delivers advanced transformer components
-            with innovation, precision, and reliability. From oil immersed circuit breakers to core
-            laminations, we ensure consistent performance and durability.
+            Electroshield Power Industries delivers advanced transformer components
+            with innovation, precision, and reliability. From oil immersed circuit breakers to transformer accessories, we ensure consistent performance and durability.
           </p>
 
           {/* Buttons */}

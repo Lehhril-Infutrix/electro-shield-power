@@ -92,7 +92,7 @@ export default function BannerWithSlideshow() {
         <div className="max-w-4xl md:mx-0">
           {/* micro-tag */}
           <span className="bg-[#CC0001] text-white px-3 py-2 rounded text-xs sm:text-sm font-medium uppercase tracking-wide inline-block">
-            ElectroShield Power Industries
+            Electroshield Power Industries
           </span>
 
           {/* main heading */}
@@ -131,12 +131,12 @@ export default function BannerWithSlideshow() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
              <Link href="/#electro-shield">
               <button className="inline-block border border-white/30 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition">
-                Explore ElectroShield
+                Explore Electroshield
               </button>
             </Link>
             <Link href="/#dream-shield">
               <button className="inline-block bg-[#CC0001] text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-[#b70000] transition">
-                Explore DreamShield
+                Explore Dreamshield
               </button>
             </Link>
           </div>

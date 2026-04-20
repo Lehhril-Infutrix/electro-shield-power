@@ -26,7 +26,7 @@ const stats = [
   },
   { 
     icon: <Users className="h-8 w-8 text-red-600" />, 
-    value: "500+", 
+    value: "50+", 
     label: "Skilled Professionals" 
   },
 ];

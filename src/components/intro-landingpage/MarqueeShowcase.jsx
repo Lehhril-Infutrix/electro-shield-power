@@ -4,14 +4,15 @@ import React from "react";
 export default function MarqueeShowcase() {
   const logosTop = [
     { src: "/images/company1.png", alt: "Logo 1", title: "Mahashakti Energy" },
-    { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries" },
+    { src: "/images/company2.png", alt: "Logo 2", title: "PP Industries Pvt Ltd" },
     { src: "/images/company3.png", alt: "Logo 3", title: "Aggarwal Steel Industries" },
     { src: "/images/company4.png", alt: "Logo 4", title: "Jayco Electricals" },
     { src: "/images/company5.png", alt: "Logo 5", title: "Amrest Innovative Power Solutions" },
     { src: "/images/company6.png", alt: "Logo 6", title: "Geesons Transformers" },
-    { src: "/images/company7.png", alt: "Logo 4", title: "Suman Electricals" },
-    { src: "/images/company8.png", alt: "Logo 5", title: "Hi-Tech Transformers" },
-    { src: "/images/company9.png", alt: "Logo 6", title: "Transformers" },
+    { src: "/images/company7.png", alt: "Logo 7", title: "Suman Electricals" },
+    { src: "/images/company8.png", alt: "Logo 8", title: "Hi-Tech Transformers" },
+    { src: "/images/company9.png", alt: "Logo 9", title: "UP Transformers India Pvt Ltd" },
+    { src: "/images/company10.png", alt: "Logo 10", title: "PP Industries" },
   ];
 
   const logosBottom = [
@@ -53,55 +54,84 @@ export default function MarqueeShowcase() {
 
 /* ---------- Pure CSS Marquee ---------- */
 function Marquee({ items, reverse }) {
-  // Duplicate items for seamless loop
-  const duplicatedItems = [...items, ...items];
+  const renderItems = (suffix = "") =>
+    items.map((logo, i) => (
+      <div
+        key={`${logo.src}-${i}${suffix}`}
+        className="flex-shrink-0 px-3 sm:px-4 md:px-5"
+      >
+        <LogoChip
+          src={logo.src}
+          alt={logo.alt || "Logo"}
+          title={logo.title}
+          eager={i < 6}
+        />
+      </div>
+    ));
 
   return (
     <div className="relative h-full flex items-center justify-center min-h-[140px] sm:min-h-[160px] overflow-hidden">
       <style jsx>{`
-        @keyframes scroll {
+        @keyframes scroll-left {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
           }
         }
 
-        @keyframes scroll-reverse {
+        @keyframes scroll-left-2 {
           0% {
-            transform: translateX(-50%);
+            transform: translateX(100%);
           }
           100% {
             transform: translateX(0);
           }
         }
 
-        .marquee-content {
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scroll-right-2 {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        .marquee-track {
           display: flex;
-          animation: ${reverse ? 'scroll-reverse' : 'scroll'} 24s linear infinite;
+          width: max-content;
+          animation: ${reverse ? "scroll-right" : "scroll-left"} 26s linear infinite;
         }
 
-        .marquee-container:hover .marquee-content {
+        .marquee-track-2 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation-name: ${reverse ? "scroll-right-2" : "scroll-left-2"};
+        }
+
+        .marquee-container:hover .marquee-track {
           animation-play-state: paused;
         }
       `}</style>
       
-      <div className="marquee-container w-full">
-        <div className="marquee-content">
-          {duplicatedItems.map((logo, i) => (
-            <div
-              key={`${logo.src}-${i}`}
-              className="flex-shrink-0 px-3 sm:px-4 md:px-5"
-            >
-              <LogoChip 
-                src={logo.src} 
-                alt={logo.alt || "Logo"} 
-                title={logo.title} 
-                eager={i < 6} 
-              />
-            </div>
-          ))}
+      <div className="marquee-container relative w-full overflow-hidden">
+        <div className="marquee-track">
+          {renderItems("-a")}
+        </div>
+        <div className="marquee-track marquee-track-2">
+          {renderItems("-b")}
         </div>
       </div>
     </div>

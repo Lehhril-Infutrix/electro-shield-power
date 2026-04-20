@@ -19,7 +19,7 @@ const About = () => {
           >
             <Image
               src="/images/About_img 1.png"
-              alt="ElectroShield facility"
+              alt="Electroshield facility"
               width={300}
               height={300}
               className="rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 w-full h-auto"
@@ -29,7 +29,7 @@ const About = () => {
           {/* Right Side Content */}
           <div className="col-span-4 md:col-span-2">
             <h3 className="text-sm font-semibold uppercase text-[#CC0001] mb-2">
-              About ElectroShield
+              About Electroshield
             </h3>
             <h2 className="text-3xl lg:text-5xl font-bold text-heading mb-6 leading-tight">
               Innovation, Precision & Reliability in Transformer Components
@@ -39,11 +39,11 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              ElectroShield Power Industries is promoted by technocrats with vast
+              Electroshield Power Industries is promoted by technocrats with vast
               experience in electrical engineering, both in manufacturing and
               operations. We cater to the needs of the transformer industry with
               specialized components such as oil immersed internal circuit breakers and
-              transformer fittings (LV Push and HV Push).
+              transformer fittings.
             </p>
 
             {/* Quick stats */}
