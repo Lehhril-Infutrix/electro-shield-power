@@ -25,8 +25,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Electroshield Power",
-  description: "Electroshield Power Industries is a leading manufacturer of high-quality transformer components and power solutions. With a commitment to innovation and excellence, we serve the needs of the electrical industry with cutting-edge products and reliable services.",
+  title: "Electroshield  Industries",
+  description: "Electroshield Power Industries is a leading manufacturer of reliable power components and engineered coating.",
 };
 
 export default function RootLayout({ children }) {
