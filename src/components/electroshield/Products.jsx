@@ -134,11 +134,11 @@ const Products = () => {
         </div>
 
         {/* Products grid */}
-        <div className="flex items-stretch justify-center gap-8">
+        <div className="flex flex-col sm:flex-row items-stretch justify-center gap-8">
           {products.map((product, index) => (
             <div
               key={index}
-              className="rounded-2xl shadow-md overflow-hidden transition-transform duration-300 border border-gray-300 flex-1 max-w-[450px]"
+              className="rounded-2xl shadow-md overflow-hidden transition-transform duration-300 border border-gray-300 flex-1 max-w-full sm:max-w-[450px]"
               data-aos="fade-up"
               data-aos-delay={index * 200}
               data-aos-duration="1000"
