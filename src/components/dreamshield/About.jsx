@@ -69,7 +69,7 @@ const About = () => {
             </div>
 
             {/* Tabs */}
-            <div role="tablist" className="flex flex-col sm:flex-row sm:space-x-4 mb-8 border-b border-gray-200">
+            <div role="tablist" className="flex flex-row space-x-4 mb-8 border-b border-gray-200">
               <button
                 role="tab"
                 aria-selected={activeTab === "values"}

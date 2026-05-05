@@ -67,7 +67,7 @@ const About = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-8 border-b border-gray-200">
+            <div className="flex flex-row space-x-4 mb-8 border-b border-gray-200">
               <button
                 onClick={() => setActiveTab("mission")}
                 className={`py-2 px-4 font-semibold cursor-pointer ${
